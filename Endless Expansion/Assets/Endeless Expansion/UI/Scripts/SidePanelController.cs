@@ -2,15 +2,37 @@ using UnityEngine;
 
 public class SidePanelController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Группа")]
+    [SerializeField] private CanvasGroup canvasGroup;
+    
+    [Header("Панели")]
+    [SerializeField] private GameObject basePanel;
+    [SerializeField] private GameObject colonyPanel;
+    [SerializeField] private GameObject laboratoryPanel;
+
+    private GameObject activePanel;
+
+    public void EnableBasePanel()
     {
-        
+        if(activePanel != null)
+            activePanel.SetActive(false);
+        basePanel.SetActive(true);
+        activePanel = basePanel;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EnableColonyPanel()
     {
-        
+        if(activePanel != null)
+            activePanel.SetActive(false);
+        colonyPanel.SetActive(true);
+        activePanel = colonyPanel;
+    }
+
+    public void EnableLaboratoryPanel()
+    {
+        if(activePanel != null)
+            activePanel.SetActive(false);
+        laboratoryPanel.SetActive(true);
+        activePanel = laboratoryPanel;
     }
 }
