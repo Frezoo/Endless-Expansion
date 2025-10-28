@@ -300,9 +300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa0be91a057e3f4393773d9ba0f14b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RussianButton: {fileID: 828182253}
-  EnglishButton: {fileID: 1331668348}
-  TurkishButton: {fileID: 1015861116}
+  russianButton: {fileID: 828182253}
+  englishButton: {fileID: 1331668348}
+  turkishButton: {fileID: 1015861116}
 --- !u!1 &335585002
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,6 +798,7 @@ GameObject:
   - component: {fileID: 700620398}
   - component: {fileID: 700620400}
   - component: {fileID: 700620399}
+  - component: {fileID: 700620401}
   m_Layer: 0
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -865,6 +866,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700620397}
   m_CullTransparentMesh: 1
+--- !u!114 &700620401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700620397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec2e3ddcaa7d0140a67a20792e63e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeButton: {fileID: 1045025254}
+  openButton: {fileID: 811604666}
+  settingsPanel: {fileID: 700620397}
+  defaultScale: {x: 0.8674, y: 0.8674, z: 0.8674}
+  duration: 0.1
 --- !u!1 &725996771
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +1002,7 @@ GameObject:
   - component: {fileID: 811604667}
   - component: {fileID: 811604666}
   m_Layer: 0
-  m_Name: SettingsButton
+  m_Name: OpenSettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

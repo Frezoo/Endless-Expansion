@@ -5,15 +5,15 @@ using YG;
 public class SwitchLanguage : MonoBehaviour
 {
     [Header("Кнопки")]
-    [SerializeField] private Button RussianButton;
-    [SerializeField] private Button EnglishButton;
-    [SerializeField] private Button TurkishButton;
+    [SerializeField] private Button russianButton;
+    [SerializeField] private Button englishButton;
+    [SerializeField] private Button turkishButton;
     
     private void Awake()
     {
-        EnglishButton.onClick.AddListener(SwitchToEnglish);
-        TurkishButton.onClick.AddListener(SwitchToTurkish);
-        RussianButton.onClick.AddListener(SwitchToRussian);
+        englishButton.onClick.AddListener(SwitchToEnglish);
+        turkishButton.onClick.AddListener(SwitchToTurkish);
+        russianButton.onClick.AddListener(SwitchToRussian);
     }
 
     private void SwitchToRussian()
