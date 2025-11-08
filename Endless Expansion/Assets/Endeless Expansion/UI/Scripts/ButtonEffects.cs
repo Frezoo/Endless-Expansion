@@ -16,8 +16,10 @@ public class ButtonEffects : MonoBehaviour
     [SerializeField] private float scaleDuration;
     private Vector3 originalScale;
     
+    
+    
 
-    void Start()
+    private void Awake()
     {
         button.GetComponent<Button>().onClick.AddListener(OnClickReScale);
         rectTransform = button.GetComponent<RectTransform>();

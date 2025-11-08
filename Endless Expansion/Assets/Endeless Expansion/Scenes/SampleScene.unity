@@ -250,6 +250,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168591546}
   m_CullTransparentMesh: 1
+--- !u!1 &291811694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 291811697}
+  - component: {fileID: 291811696}
+  - component: {fileID: 291811695}
+  m_Layer: 0
+  m_Name: PlayerInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &291811695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291811694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0168f56afdb7e5479aaa3c5bac04fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenSettings:
+    m_PersistentCalls:
+      m_Calls: []
+  CloseSettings:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &291811696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291811694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d904499e0c7c2d643a2edcd2c5c30a83, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 291811695}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnOpenCloseSettings
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 35483cd5-acaa-438c-a9ba-8e46590a4d64
+    m_ActionName: 'PlayerInput/OpenCloseSettings[/Keyboard/escape]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Player
+  m_DefaultActionMap: PlayerInput
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!4 &291811697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291811694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 999.8898, y: 707.615, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &318773537
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +896,7 @@ GameObject:
   - component: {fileID: 700620400}
   - component: {fileID: 700620399}
   - component: {fileID: 700620401}
+  - component: {fileID: 700620402}
   m_Layer: 0
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -881,8 +979,22 @@ MonoBehaviour:
   closeButton: {fileID: 1045025254}
   openButton: {fileID: 811604666}
   settingsPanel: {fileID: 700620397}
+  settingsCanvasGroup: {fileID: 700620402}
   defaultScale: {x: 0.8674, y: 0.8674, z: 0.8674}
   duration: 0.1
+  inputController: {fileID: 291811695}
+--- !u!225 &700620402
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700620397}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &725996771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11.599976, y: -12.599976}
+  m_AnchoredPosition: {x: -11.600098, y: -12.599976}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1045025254
@@ -4389,7 +4501,7 @@ MonoBehaviour:
   ka: 
   et: 
   fr: 
-  kk: 
+  kk: "\u0422\u0456\u043B"
   ky: 
   lt: 
   lv: 
@@ -4411,9 +4523,9 @@ MonoBehaviour:
   uniqueFont: {fileID: 0}
   additionalText: {fileID: 0}
   textHeight: 20
-  processTranslateLabel: 3/3 completed
+  processTranslateLabel: 0/3 completed
   componentTextField: 1
-  countLang: 3
+  countLang: 0
 --- !u!114 &2135147093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4856,3 +4968,4 @@ SceneRoots:
   - {fileID: 419357582}
   - {fileID: 148297837}
   - {fileID: 538783443}
+  - {fileID: 291811697}

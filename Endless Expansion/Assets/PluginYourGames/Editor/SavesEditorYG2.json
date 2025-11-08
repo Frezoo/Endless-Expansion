@@ -1,7 +1,7 @@
 {
     "heliy": 3,
     "money": 0,
-    "biomass": 371,
+    "biomass": 508,
     "nanocat": 0,
     "intExample": 5,
     "strExample": "Hello!",
@@ -11,5 +11,5 @@
         false,
         false
     ],
-    "idSave": 374
+    "idSave": 511
 }
