@@ -19,7 +19,9 @@ public class OpenCloseSettings : MonoBehaviour
 
     [Header("Ввод с клавиатуры")] [SerializeField]
     private InputController inputController;
-
+    
+    [Header("Canvas Group для блокировки ввода при анимации")]
+    [SerializeField] private CanvasGroup otherCanvasGroup;
 
     private void Awake()
     {
@@ -38,7 +40,7 @@ public class OpenCloseSettings : MonoBehaviour
         settingsCanvasGroup.interactable = false;
         settingsPanelRectTransform.DOScale(lowScale, duration)
             .SetEase(Ease.OutBack)
-            .OnComplete((() => { settingsPanel.SetActive(false); }));
+            .OnComplete((() => { settingsPanel.SetActive(false);otherCanvasGroup.interactable = true; }));
     }
 
     private void OpenSettingsPanel()
@@ -46,7 +48,7 @@ public class OpenCloseSettings : MonoBehaviour
         settingsPanel.SetActive(true);
         settingsPanelRectTransform.DOScale(defaultScale, duration)
             .SetEase(Ease.OutBack)
-            .OnComplete((() => { settingsCanvasGroup.interactable = true; }
+            .OnComplete((() => { settingsCanvasGroup.interactable = true;otherCanvasGroup.interactable = false; }
                 ));
     }
 }

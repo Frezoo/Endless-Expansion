@@ -7,25 +7,25 @@ public class ButtonEffects : MonoBehaviour
     [SerializeField] private GameObject button;
     private RectTransform rectTransform;
     
-    [Header("Покачивание")]
-    [SerializeField] private float duration;
-    [SerializeField] private float angle;
-    
-    [Header("Увеличение/Уменьшение")]
-    [SerializeField] private float scaleFactor;
-    [SerializeField] private float scaleDuration;
+    [Header("Увеличение/Уменьшение")] [SerializeField]
+    private float scaleFactor = 1.07f;
+
+    [Header("Длительность увеличения/уменьшения")]
+    [SerializeField] private float scaleDuration = 0.02f;
     private Vector3 originalScale;
-    
-    
-    
+
 
     private void Awake()
     {
+        if (button == null)
+        {
+            button = gameObject;
+            Debug.Log($"Компонент кнопки взят с игрового объекта {gameObject.name}");
+        }
+
         button.GetComponent<Button>().onClick.AddListener(OnClickReScale);
         rectTransform = button.GetComponent<RectTransform>();
         originalScale = rectTransform.localScale;
-        button.transform.DORotate(Vector3.forward * angle, duration, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine)
-            .SetLoops(-1, LoopType.Yoyo);
     }
 
 
@@ -33,7 +33,8 @@ public class ButtonEffects : MonoBehaviour
     {
         rectTransform.DOScale(originalScale * scaleFactor, scaleDuration)
             .SetEase(Ease.OutSine)
-            .OnComplete(() => {
+            .OnComplete(() =>
+            {
                 rectTransform.DOScale(originalScale, scaleDuration)
                     .SetEase(Ease.InSine);
             });
