@@ -11,6 +11,7 @@ public class ChangeStantions : MonoBehaviour
 
     [Header("Кнопки-активаторы")]
     [SerializeField] private Button baseStantionButton;
+    [SerializeField] private Button baseStantionFromLaboratoryButton;
     [SerializeField] private Button colonyStantionButton;
     [SerializeField] private Button labaratoryStantionButton;
 
@@ -25,6 +26,7 @@ public class ChangeStantions : MonoBehaviour
         if (baseStantionButton != null) baseStantionButton.onClick.AddListener(EnableBasePanel);
         if (colonyStantionButton != null) colonyStantionButton.onClick.AddListener(EnableColonyPanel);
         if (labaratoryStantionButton != null) labaratoryStantionButton.onClick.AddListener(EnableLaboratoryPanel);
+        if (baseStantionFromLaboratoryButton != null) baseStantionFromLaboratoryButton.onClick.AddListener(EnableBasePanel);
         
         SetInstantActive(baseStantion, true);
         SetInstantActive(colonyStantion, false);
