@@ -1,9 +1,19 @@
 {
+    "FarmAquaAmount": 12,
+    "AquaUpgradeCoast": 600.0,
+    "AquaLevel": 4,
     "GeneralVolume": 0.06404078006744385,
     "MusicVolume": 0.432584285736084,
+    "BaseLevel": 0,
+    "FarmBioAmount": 39,
+    "BioUpgradeCoast": 1950.0,
+    "BioLevel": 13,
+    "FarmHeliyAmount": 12,
+    "HeliyUpgradeCoast": 600.0,
+    "HeliyLevel": 4,
     "Language": "ru",
     "heliy": 0,
-    "money": 49,
+    "money": 393,
     "biomass": 0,
     "aquaculture": 0,
     "nanocat": 0,
@@ -15,5 +25,5 @@
         false,
         false
     ],
-    "idSave": 725
+    "idSave": 1130
 }

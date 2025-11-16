@@ -34,15 +34,27 @@ public class SaveManager : MonoBehaviour
         YG2.saves.heliy = StandardHeliy;
         YG2.saves.money = StandardMoney;
         YG2.saves.nanocat = StandardNanocat;
+        YG2.saves.BaseLevel = BaseLevel.Base;
+        
+        YG2.saves.FarmHeliyAmount = 1;
+        YG2.saves.HeliyLevel = 1;
+        YG2.saves.HeliyUpgradeCoast = 100;
+
+        YG2.saves.FarmAquaAmount = 1;
+        YG2.saves.AquaLevel = 1;
+        YG2.saves.AquaUpgradeCoast = 100;
+        
+        YG2.saves.FarmBioAmount = 1;
+        YG2.saves.BioLevel = 1;
+        YG2.saves.BioUpgradeCoast = 100;
+        
         YG2.SaveProgress();
     }
     
     public void FristStartSetup()
     {
-        YG2.saves.biomass = StandardBiomass;
-        YG2.saves.heliy = StandardHeliy;
-        YG2.saves.money = StandardMoney;
-        YG2.saves.nanocat = StandardNanocat;
+        SetDefaultParams();
+        
         YG2.saves.Language = StandardLanguage;
         YG2.saves.GeneralVolume = StandardGeneralVolume;
         YG2.saves.MusicVolume = StandardMusicVolume;
