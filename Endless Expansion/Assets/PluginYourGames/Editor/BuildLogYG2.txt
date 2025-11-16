@@ -1,0 +1,3 @@
+﻿Build path: E:/Unity/Endless-Expansion/Endless Expansion/builds/2
+Build number: 1
+PluginYG version: 2.007

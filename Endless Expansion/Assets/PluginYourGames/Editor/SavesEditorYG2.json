@@ -5,18 +5,18 @@
     "GeneralVolume": 0.06404078006744385,
     "MusicVolume": 0.432584285736084,
     "BaseLevel": 1,
-    "FarmBioAmount": 12,
-    "BioUpgradeCoast": 600.0,
-    "BioLevel": 4,
+    "FarmBioAmount": 15,
+    "BioUpgradeCoast": 750.0,
+    "BioLevel": 5,
     "FarmHeliyAmount": 1,
     "HeliyUpgradeCoast": 100.0,
     "HeliyLevel": 1,
-    "Language": "ru",
-    "heliy": 2,
-    "money": 680,
-    "biomass": 114,
-    "aquaculture": 9044,
-    "nanocat": 3,
+    "Language": "en",
+    "heliy": 1,
+    "money": 932,
+    "biomass": 1299,
+    "aquaculture": 8907,
+    "nanocat": 10,
     "intExample": 5,
     "strExample": "Hello!",
     "boolExample": [
@@ -25,5 +25,5 @@
         false,
         false
     ],
-    "idSave": 2124
+    "idSave": 2152
 }

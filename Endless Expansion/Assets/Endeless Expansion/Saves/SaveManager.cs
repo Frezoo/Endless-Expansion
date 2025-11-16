@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using YG;
 
@@ -24,6 +26,8 @@ public class SaveManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        StartCoroutine(SavePeriod());
 
         YG2.onDefaultSaves += FristStartSetup;
     }
@@ -59,6 +63,15 @@ public class SaveManager : MonoBehaviour
         YG2.saves.GeneralVolume = StandardGeneralVolume;
         YG2.saves.MusicVolume = StandardMusicVolume;
         YG2.SaveProgress();
+    }
+    
+    private IEnumerator SavePeriod()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(6);
+            YG2.SaveProgress();
+        }
     }
     
 }

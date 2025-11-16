@@ -6291,6 +6291,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1823070617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1823070619}
+  - component: {fileID: 1823070618}
+  m_Layer: 0
+  m_Name: Saves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1823070618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823070617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f45b41bd3881e4bbaeac1763792ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StandardLanguage: ru
+  StandardGeneralVolume: 1
+  StandardMusicVolume: 1
+  StandardBiomass: 0
+  StandardHeliy: 0
+  StandardMoney: 0
+  StandardNanocat: 0
+--- !u!4 &1823070619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823070617}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 458.42126, y: 764.14954, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824551684
 GameObject:
   m_ObjectHideFlags: 0
@@ -7113,6 +7164,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9222788332646243508, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
   m_PrefabInstance: {fileID: 6809112529626256914}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6664155653297367238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4195991548906849882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ef807b74f20ec40996915c8468b42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NeedHeliyToSyntez: 30
+  NeedBiomassToSyntez: 50
+  NeedAquaToSyntez: 50
+  NanocatPerSyntez: 10
 --- !u!1 &6681134664294608175 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 568587619928913374, guid: 28791dcca364c2a48b16069c7b029aae, type: 3}
@@ -7126,13 +7193,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 520152486}
     m_Modifications:
+    - target: {fileID: 2738507249937025163, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4064641621012374750, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
       propertyPath: m_Name
       value: Laboratory
       objectReference: {fileID: 0}
     - target: {fileID: 4064641621012374750, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5141700461516364968, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212013249450387013, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212013249450387013, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212013249450387013, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6664155653297367238}
+    - target: {fileID: 6212013249450387013, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212013249450387013, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TrySyntez
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212013249450387013, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LaborotoryLogic, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212013249450387013, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9222788332646243508, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
       propertyPath: m_Pivot.x
@@ -7220,7 +7323,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9222788332646243508, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 209021446}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4064641621012374750, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6664155653297367238}
   m_SourcePrefab: {fileID: 100100000, guid: eb2634ca7acf7aa40ae4ead4b25c55e3, type: 3}
 --- !u!1001 &8394593701288907401
 PrefabInstance:
@@ -7244,7 +7350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2365892101389569464, guid: 2066acb9421841848807cb2340a71e47, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2413244372418754457, guid: 2066acb9421841848807cb2340a71e47, type: 3}
       propertyPath: m_Name
@@ -7453,3 +7559,4 @@ SceneRoots:
   - {fileID: 397038331}
   - {fileID: 923787519}
   - {fileID: 544560200}
+  - {fileID: 1823070619}
