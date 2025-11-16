@@ -1,13 +1,29 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 
 public class MenuController : MonoBehaviour
 {
     [Header("Конпки")]
     [SerializeField] private Button startNewGameButton;
     [SerializeField] private Button resumeGameButton;
-    [SerializeField] private Button openSettingsButton;
-    
-    
-    
+
+
+    private void Awake()
+    {
+        startNewGameButton.onClick.AddListener(StartGame);
+        resumeGameButton.onClick.AddListener(resumeGame);
+    }
+
+    private void StartGame()
+    {
+        SaveManager.Instance.SetDefaultParams();
+        SceneManager.LoadScene(1);
+    }
+
+    private void resumeGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

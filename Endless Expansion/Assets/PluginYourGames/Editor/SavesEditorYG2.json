@@ -1,11 +1,11 @@
 {
-    "GeneralVolume": 0.5889477729797363,
-    "MusicVolume": 0.30625292658805849,
-    "Language": "tr",
-    "heliy": 3,
-    "money": 0,
-    "biomass": 519,
-    "nanocat": 0,
+    "GeneralVolume": 0.21777793765068055,
+    "MusicVolume": 0.8139027953147888,
+    "Language": "en",
+    "heliy": 2,
+    "money": 10,
+    "biomass": 1,
+    "nanocat": 3,
     "intExample": 5,
     "strExample": "Hello!",
     "boolExample": [
@@ -14,5 +14,5 @@
         false,
         false
     ],
-    "idSave": 575
+    "idSave": 708
 }

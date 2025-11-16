@@ -14,12 +14,15 @@ public class SwitchLanguage : MonoBehaviour
         englishButton.onClick.AddListener(SwitchToEnglish);
         turkishButton.onClick.AddListener(SwitchToTurkish);
         russianButton.onClick.AddListener(SwitchToRussian);
-
+        
         if (YG2.isSDKEnabled)
         {
             OnSavesReady();
         }
-        
+        else
+        {
+            Invoke("OnSavesReady", 0.03f);
+        }
     }
 
     private void SwitchToRussian()
@@ -39,12 +42,7 @@ public class SwitchLanguage : MonoBehaviour
         YG2.SwitchLanguage("tr");
         YG2.saves.Language = "tr";
     }
-
-    private void OnDisable()
-    {
-        YG2.SaveProgress();
-    }
-
+    
     private void OnSavesReady()
     {
         if (YG2.saves.Language != null)
@@ -54,9 +52,8 @@ public class SwitchLanguage : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        YG2.onGetSDKData -= OnSavesReady;
+        YG2.SaveProgress();
     }
-    
 }

@@ -19,6 +19,10 @@ public class AudioController : MonoBehaviour
         {
             OnSavesReady();
         }
+        else
+        {
+            Invoke("OnSavesReady", 0.03f);
+        }
     }
 
     private void ChangeGeneralVolume(float Value)
