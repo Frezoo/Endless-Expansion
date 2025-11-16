@@ -14,6 +14,7 @@ public class UiController : MonoBehaviour
     [Header("Модель")] 
     [SerializeField] private Player player;
     [SerializeField] private BaseLogic baseLogic;
+    [SerializeField] private AutoFarm autoFarm;
     
 
     private void Awake()
@@ -27,6 +28,8 @@ public class UiController : MonoBehaviour
         ReDrawHaracteristic();
         player.ClickedFarmButton.AddListener(ReDrawHaracteristic);
         baseLogic.SoldResources.AddListener(ReDrawHaracteristic);
+        autoFarm.OnTick.AddListener(ReDrawHaracteristic);
+        
     }
 
     private void ReDrawHaracteristic()

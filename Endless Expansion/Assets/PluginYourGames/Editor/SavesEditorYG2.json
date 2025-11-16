@@ -12,10 +12,10 @@
     "HeliyUpgradeCoast": 600.0,
     "HeliyLevel": 4,
     "Language": "ru",
-    "heliy": 0,
-    "money": 486,
-    "biomass": 126,
-    "aquaculture": 0,
+    "heliy": 667,
+    "money": 12977,
+    "biomass": 22618,
+    "aquaculture": 126,
     "nanocat": 0,
     "intExample": 5,
     "strExample": "Hello!",
@@ -25,5 +25,5 @@
         false,
         false
     ],
-    "idSave": 1341
+    "idSave": 1462
 }

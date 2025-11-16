@@ -601,6 +601,7 @@ MonoBehaviour:
   moneyText: {fileID: 861947638}
   player: {fileID: 419357581}
   baseLogic: {fileID: 8394593701288907408}
+  autoFarm: {fileID: 923787518}
 --- !u!4 &148297837
 Transform:
   m_ObjectHideFlags: 0
@@ -2714,6 +2715,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &923787517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923787519}
+  - component: {fileID: 923787518}
+  m_Layer: 0
+  m_Name: AutoFarming
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &923787518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923787517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f407c147bf5964d94618876f19405e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickInterval: 1.5
+  OnTick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &923787519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923787517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 506.69034, y: 349.66382, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056908121
 GameObject:
   m_ObjectHideFlags: 0
@@ -4734,6 +4783,28 @@ MonoBehaviour:
   button: {fileID: 0}
   scaleFactor: 1.07
   scaleDuration: 0.02
+--- !u!114 &1715154079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394593701288907403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c83c47dfab0cc6448813ad37a3f9014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateHeliumCondenser: {fileID: 1866549330}
+  updateBiomassCollector: {fileID: 1755321451}
+  updateAquacultureCollector: {fileID: 769126382}
+  upgradeHeliumCondenserCost: 100
+  upgradeBiomassCollectorCost: 100
+  upgradeAquacultureCollectorCost: 100
+  heliumCondenserUpgradePriceText: {fileID: 1310578061}
+  biomassCollectorUpgradePriceText: {fileID: 222748252}
+  aquacultureCollectorUpgradePriceText: {fileID: 2119994316}
+  baseLogic: {fileID: 8394593701288907408}
 --- !u!114 &1755321451 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5536000834004308640, guid: 2066acb9421841848807cb2340a71e47, type: 3}
@@ -5669,7 +5740,7 @@ PrefabInstance:
       addedObject: {fileID: 8394593701288907408}
     - targetCorrespondingSourceObject: {fileID: 2365892101389569464, guid: 2066acb9421841848807cb2340a71e47, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8394593701288907409}
+      addedObject: {fileID: 1715154079}
   m_SourcePrefab: {fileID: 100100000, guid: 2066acb9421841848807cb2340a71e47, type: 3}
 --- !u!224 &8394593701288907402 stripped
 RectTransform:
@@ -5759,28 +5830,6 @@ MonoBehaviour:
   SoldResources:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8394593701288907409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8394593701288907403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c83c47dfab0cc6448813ad37a3f9014, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateHeliumCondenser: {fileID: 1866549330}
-  updateBiomassCollector: {fileID: 1755321451}
-  updateAquacultureCollector: {fileID: 769126382}
-  upgradeHeliumCondenserCost: 100
-  upgradeBiomassCollectorCost: 100
-  upgradeAquacultureCollectorCost: 100
-  heliumCondenserUpgradePriceText: {fileID: 1310578061}
-  biomassCollectorUpgradePriceText: {fileID: 222748252}
-  aquacultureCollectorUpgradePriceText: {fileID: 2119994316}
-  baseLogic: {fileID: 8394593701288907408}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5793,3 +5842,4 @@ SceneRoots:
   - {fileID: 538783443}
   - {fileID: 291811697}
   - {fileID: 397038331}
+  - {fileID: 923787519}
