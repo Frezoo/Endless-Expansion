@@ -462,6 +462,7 @@ MonoBehaviour:
   nanocatText: {fileID: 1287977867}
   moneyText: {fileID: 861947638}
   player: {fileID: 419357581}
+  baseLogic: {fileID: 8394593701288907408}
 --- !u!4 &148297837
 Transform:
   m_ObjectHideFlags: 0
@@ -1593,6 +1594,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &573445883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4490907534806673851, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+  m_PrefabInstance: {fileID: 8394593701288907401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2256,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880061710}
   m_CullTransparentMesh: 1
+--- !u!114 &912917128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8529348583937384807, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+  m_PrefabInstance: {fileID: 8394593701288907401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1056908121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,6 +2433,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059181603}
   m_CullTransparentMesh: 1
+--- !u!114 &1110297847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5953965277770865329, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+  m_PrefabInstance: {fileID: 8394593701288907401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1159890349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +2961,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287977865}
   m_CullTransparentMesh: 1
+--- !u!114 &1322302795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4582876530083020191, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+  m_PrefabInstance: {fileID: 8394593701288907401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1340091676
 GameObject:
   m_ObjectHideFlags: 0
@@ -4332,11 +4377,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 280649641689039122, guid: f7daacf34ba1fd44c897cb2e60707fba, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 731686890501439305, guid: f7daacf34ba1fd44c897cb2e60707fba, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2121384578940214653, guid: f7daacf34ba1fd44c897cb2e60707fba, type: 3}
       propertyPath: musicListener
@@ -4354,6 +4399,10 @@ PrefabInstance:
       propertyPath: otherCanvasGroup
       value: 
       objectReference: {fileID: 800384516}
+    - target: {fileID: 3832129802857959996, guid: f7daacf34ba1fd44c897cb2e60707fba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4081235179696153578, guid: f7daacf34ba1fd44c897cb2e60707fba, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4436,7 +4485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4907503487942997008, guid: f7daacf34ba1fd44c897cb2e60707fba, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5369728428843819682, guid: f7daacf34ba1fd44c897cb2e60707fba, type: 3}
       propertyPath: m_Name
@@ -4444,7 +4493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776440000159945495, guid: f7daacf34ba1fd44c897cb2e60707fba, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4661,13 +4710,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2206880781048012732, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+    - {fileID: 2257541386158430882, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+    - {fileID: 5441809590980164750, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+    - {fileID: 9035589575719530783, guid: 2066acb9421841848807cb2340a71e47, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4647431861310568187, guid: 2066acb9421841848807cb2340a71e47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1056908125}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2365892101389569464, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8394593701288907408}
   m_SourcePrefab: {fileID: 100100000, guid: 2066acb9421841848807cb2340a71e47, type: 3}
 --- !u!224 &8394593701288907402 stripped
 RectTransform:
@@ -4679,6 +4735,78 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2365892101389569464, guid: 2066acb9421841848807cb2340a71e47, type: 3}
   m_PrefabInstance: {fileID: 8394593701288907401}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8394593701288907404 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 637683888201189756, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+  m_PrefabInstance: {fileID: 8394593701288907401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8394593701288907405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3892090691231519840, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+  m_PrefabInstance: {fileID: 8394593701288907401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8394593701288907406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2609891218263780430, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+  m_PrefabInstance: {fileID: 8394593701288907401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8394593701288907407 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8302490723365096446, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+  m_PrefabInstance: {fileID: 8394593701288907401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8394593701288907408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394593701288907403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a4326beecaedd448f5063593faf492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RewardForHeliy: 2
+  RewardForBiomass: 5
+  RewardForAquaculture: 3
+  RewardForNanocat: 10
+  MaxResourceCountToSell: 100
+  sellHeliyButton: {fileID: 8394593701288907406}
+  sellBiomassButton: {fileID: 8394593701288907407}
+  sellAquacultureButton: {fileID: 8394593701288907404}
+  sellNanocatButton: {fileID: 8394593701288907405}
+  heliyPrice: {fileID: 912917128}
+  biomassPrice: {fileID: 573445883}
+  aquaculturePrice: {fileID: 1110297847}
+  nanocatPrice: {fileID: 1322302795}
+  SoldResources:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

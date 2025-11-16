@@ -2,5 +2,6 @@ public enum Resource
 {
     Biomas,
     Heliy,
-    Nanocatalys
+    Nanocatalys,
+    Aquaculture
 }
