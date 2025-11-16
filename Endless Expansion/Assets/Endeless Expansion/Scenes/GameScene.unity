@@ -1606,9 +1606,6 @@ MonoBehaviour:
   ClickedFarmButton:
     m_PersistentCalls:
       m_Calls: []
-  farmHeliyAmount: 1
-  farmAquaAmount: 1
-  farmBiomassAmount: 1
 --- !u!4 &419357582
 Transform:
   m_ObjectHideFlags: 0
@@ -5553,6 +5550,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 520152486}
     m_Modifications:
+    - target: {fileID: 794429689365626980, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+      propertyPath: m_Name
+      value: Uprade harverster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680211052003551027, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+      propertyPath: m_Name
+      value: Upgrade capactior
+      objectReference: {fileID: 0}
     - target: {fileID: 2365892101389569464, guid: 2066acb9421841848807cb2340a71e47, type: 3}
       propertyPath: m_Name
       value: Base
@@ -5560,6 +5565,10 @@ PrefabInstance:
     - target: {fileID: 2365892101389569464, guid: 2066acb9421841848807cb2340a71e47, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413244372418754457, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+      propertyPath: m_Name
+      value: Upgrade collector
       objectReference: {fileID: 0}
     - target: {fileID: 4647431861310568187, guid: 2066acb9421841848807cb2340a71e47, type: 3}
       propertyPath: m_Pivot.x
@@ -5658,6 +5667,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2365892101389569464, guid: 2066acb9421841848807cb2340a71e47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8394593701288907408}
+    - targetCorrespondingSourceObject: {fileID: 2365892101389569464, guid: 2066acb9421841848807cb2340a71e47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8394593701288907409}
   m_SourcePrefab: {fileID: 100100000, guid: 2066acb9421841848807cb2340a71e47, type: 3}
 --- !u!224 &8394593701288907402 stripped
 RectTransform:
@@ -5740,6 +5752,25 @@ MonoBehaviour:
   sellBiomassButton: {fileID: 8394593701288907407}
   sellAquacultureButton: {fileID: 8394593701288907404}
   sellNanocatButton: {fileID: 8394593701288907405}
+  heliyPrice: {fileID: 912917128}
+  biomassPrice: {fileID: 573445883}
+  aquaculturePrice: {fileID: 1110297847}
+  nanocatPrice: {fileID: 1322302795}
+  SoldResources:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8394593701288907409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394593701288907403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c83c47dfab0cc6448813ad37a3f9014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   updateHeliumCondenser: {fileID: 1866549330}
   updateBiomassCollector: {fileID: 1755321451}
   updateAquacultureCollector: {fileID: 769126382}
@@ -5749,13 +5780,7 @@ MonoBehaviour:
   heliumCondenserUpgradePriceText: {fileID: 1310578061}
   biomassCollectorUpgradePriceText: {fileID: 222748252}
   aquacultureCollectorUpgradePriceText: {fileID: 2119994316}
-  heliyPrice: {fileID: 912917128}
-  biomassPrice: {fileID: 573445883}
-  aquaculturePrice: {fileID: 1110297847}
-  nanocatPrice: {fileID: 1322302795}
-  SoldResources:
-    m_PersistentCalls:
-      m_Calls: []
+  baseLogic: {fileID: 8394593701288907408}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
