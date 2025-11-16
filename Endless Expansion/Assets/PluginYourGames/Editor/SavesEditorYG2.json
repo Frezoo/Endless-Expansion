@@ -1,4 +1,6 @@
 {
+    "GeneralVolume": 1.0,
+    "MusicVolume": 0.5412392020225525,
     "heliy": 3,
     "money": 0,
     "biomass": 519,
@@ -11,5 +13,5 @@
         false,
         false
     ],
-    "idSave": 522
+    "idSave": 541
 }
