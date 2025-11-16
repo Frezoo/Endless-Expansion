@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class ChangeStantions : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ChangeStantions : MonoBehaviour
     [SerializeField] private GameObject baseStantion;
     [SerializeField] private GameObject colonyStantion;
     [SerializeField] private GameObject labaratoryStantion;
+    [SerializeField] private GameObject buyLaboratoryStantion;
 
     [Header("Кнопки-активаторы")]
     [SerializeField] private Button baseStantionButton;
@@ -20,24 +22,50 @@ public class ChangeStantions : MonoBehaviour
 
     private GameObject activeStantion;
     private Coroutine transition;
+    
+    public static ChangeStantions Instance;
 
     private void Awake()
     {
         if (baseStantionButton != null) baseStantionButton.onClick.AddListener(EnableBasePanel);
         if (colonyStantionButton != null) colonyStantionButton.onClick.AddListener(EnableColonyPanel);
-        if (labaratoryStantionButton != null) labaratoryStantionButton.onClick.AddListener(EnableLaboratoryPanel);
+        if (labaratoryStantionButton != null) labaratoryStantionButton.onClick.AddListener(GoToLaboratoryStantion);
         if (baseStantionFromLaboratoryButton != null) baseStantionFromLaboratoryButton.onClick.AddListener(EnableBasePanel);
         
         SetInstantActive(baseStantion, true);
         SetInstantActive(colonyStantion, false);
         SetInstantActive(labaratoryStantion, false);
+        SetInstantActive(buyLaboratoryStantion, false);
         activeStantion = baseStantion;
+        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
 
     public void EnableBasePanel() => CrossFadeTo(baseStantion);
     public void EnableColonyPanel() => CrossFadeTo(colonyStantion);
-    public void EnableLaboratoryPanel() => CrossFadeTo(labaratoryStantion);
-
+    
+    public void GoToLaboratoryStantion()
+    {
+        if (YG2.saves.BaseLevel == BaseLevel.Base)
+        {
+            CrossFadeTo(buyLaboratoryStantion);
+        }
+        else
+        {
+            CrossFadeTo(labaratoryStantion);
+        }
+    }
+    
+    
     private void CrossFadeTo(GameObject newPanel)
     {
         if (newPanel == null) return;

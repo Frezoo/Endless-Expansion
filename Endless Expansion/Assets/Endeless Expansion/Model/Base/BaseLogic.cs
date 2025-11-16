@@ -48,15 +48,24 @@ public class BaseLogic : MonoBehaviour
         sellAquacultureButton.onClick.AddListener(SellAquaculture);
         sellNanocatButton.onClick.AddListener(SellNanocat);
 
-
-        ReDrawBase();
-
+        if (YG2.isSDKEnabled)
+        {
+            LoadBaseSaves();
+            Debug.Log("Подгрузка базы");
+        }
+        else
+        {
+            Invoke("LoadBaseSaves",0.03f);
+            Debug.Log("Подгрузка базы 1");
+        }
+        
         DrawSellPrices();
     }
 
-    private void ReDrawBase()
+    public void ReDrawBase()
     {
-        BaseView.sprite = baseSprites[(int)baseLevel];
+        Debug.Log((int)baseLevel);
+        BaseView.sprite = baseSprites[(int)YG2.saves.BaseLevel];
     }
 
     public void SellHeliy()
@@ -102,5 +111,11 @@ public class BaseLogic : MonoBehaviour
         biomassPrice.text = RewardForBiomass.ToString();
         aquaculturePrice.text = RewardForAquaculture.ToString();
         nanocatPrice.text = RewardForNanocat.ToString();
+    }
+
+    private void LoadBaseSaves()
+    {
+        baseLevel =  YG2.saves.BaseLevel;
+        ReDrawBase();
     }
 }
