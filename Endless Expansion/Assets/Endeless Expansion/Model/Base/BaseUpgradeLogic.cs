@@ -51,6 +51,7 @@ public class BaseUpgradeLogic : MonoBehaviour
         else
         {
             Debug.Log("Недостаточно средств для апгрейда");
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
         }
     }
 
@@ -70,6 +71,7 @@ public class BaseUpgradeLogic : MonoBehaviour
         else
         {
             Debug.Log("Недостаточно средств для апгрейда");
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
         }
     }
 
@@ -89,6 +91,7 @@ public class BaseUpgradeLogic : MonoBehaviour
         else
         {
             Debug.Log("Недостаточно средств для апгрейда");
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
         }
     }
 
