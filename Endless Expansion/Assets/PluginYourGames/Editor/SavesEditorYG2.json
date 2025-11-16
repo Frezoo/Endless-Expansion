@@ -1,6 +1,7 @@
 {
-    "GeneralVolume": 1.0,
-    "MusicVolume": 0.5412392020225525,
+    "GeneralVolume": 0.5889477729797363,
+    "MusicVolume": 0.30625292658805849,
+    "Language": "tr",
     "heliy": 3,
     "money": 0,
     "biomass": 519,
@@ -13,5 +14,5 @@
         false,
         false
     ],
-    "idSave": 541
+    "idSave": 575
 }

@@ -8,6 +8,12 @@ public class InputController : MonoBehaviour
     public UnityEvent OpenSettings;
     public UnityEvent CloseSettings;
 
+    public bool IsOpen
+    {
+        get => isOpen;
+        set => isOpen = value;
+    }
+
     public void OnOpenCloseSettings(InputAction.CallbackContext context)
     {
         if (context.performed)

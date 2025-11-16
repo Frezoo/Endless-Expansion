@@ -15,8 +15,10 @@ public class AudioController : MonoBehaviour
     {
         GeneralVolumeSlider.onValueChanged.AddListener(ChangeGeneralVolume);
         MusicVolumeSlider.onValueChanged.AddListener(ChangeMusicVolume);
-        GeneralVolumeSlider.value = YG2.saves.GeneralVolume;
-        MusicVolumeSlider.value = YG2.saves.MusicVolume;
+        if (YG2.isSDKEnabled)
+        {
+            OnSavesReady();
+        }
     }
 
     private void ChangeGeneralVolume(float Value)
@@ -36,5 +38,16 @@ public class AudioController : MonoBehaviour
     private void OnDisable()
     {
         YG2.SaveProgress();
+    }
+
+    private void OnSavesReady()
+    {
+        GeneralVolumeSlider.value = YG2.saves.GeneralVolume;
+        MusicVolumeSlider.value = YG2.saves.MusicVolume;
+    }
+
+    private void OnDestroy()
+    {
+        YG2.onGetSDKData -= OnSavesReady;
     }
 }
