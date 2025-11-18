@@ -14,7 +14,7 @@
     "Language": "en",
     "heliy": 1,
     "money": 932,
-    "biomass": 1299,
+    "biomass": 12912,
     "aquaculture": 8907,
     "nanocat": 10,
     "intExample": 5,
@@ -25,5 +25,5 @@
         false,
         false
     ],
-    "idSave": 2152
+    "idSave": 2403
 }
