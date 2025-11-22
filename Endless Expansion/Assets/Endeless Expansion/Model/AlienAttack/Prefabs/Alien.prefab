@@ -92,8 +92,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 6
   moveSpeed: 0
-  attackDamage: 0
+  attackDamage: 1
   attackDelay: 1.4
+  maxDistanceBeyondTarget: 350
   fakeColliderButton: {fileID: 3008558345199769917}
   target: {fileID: 0}
   spawnAnimationDuration: 0.2

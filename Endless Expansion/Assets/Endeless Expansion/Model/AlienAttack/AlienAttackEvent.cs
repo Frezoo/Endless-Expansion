@@ -42,7 +42,7 @@ public class AlienAttackEvent : MonoBehaviour
             var spawnPoint = availableList[Random.Range(0, availableList.Count)];
             usedSpawnPoints.Add(spawnPoint);
             var alien = Instantiate(alienPrefab, spawnPoint.position, Quaternion.identity, spawnPoint);
-            alien.Target = attackTarget;
+            alien.AddBase(attackTarget);
             aliens.Add(alien);
             yield return new WaitForSeconds(spawnDelay);
         }

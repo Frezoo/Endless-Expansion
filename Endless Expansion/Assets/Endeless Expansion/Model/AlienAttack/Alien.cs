@@ -2,75 +2,93 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class Alien : MonoBehaviour
 {
-    
-    [Header("Показатели")]
-    [SerializeField] private int health;
+
+    [Header("Показатели")] [SerializeField]
+    private int health;
+
     [SerializeField] private float moveSpeed;
     [SerializeField] private float attackDamage;
     [SerializeField] private float attackDelay;
-    [SerializeField] private float  maxDistanceBeyondTarget = 350f; 
+    [SerializeField] private float maxDistanceBeyondTarget = 350f;
     private bool isAttacking;
-    
-    [Header("Fake Collider")]
-    [SerializeField] private Button fakeColliderButton;
-    
-    [Header("Цель атаки")]
-    [SerializeField] private RectTransform target;
-    
-    [Header("Параметры анимаций")]
-    [SerializeField] private float spawnAnimationDuration;
 
-    [Header("Цветовая реакция на урон")]
-    [SerializeField] private Color damagedColor;
+    [Header("Fake Collider")] [SerializeField]
+    private Button fakeColliderButton;
+
+    [Header("Цель атаки")] [SerializeField]
+    private RectTransform target;
+
+    private BaseHeath baseHealth;
+
+    [Header("Параметры анимаций")] [SerializeField]
+    private float spawnAnimationDuration;
+
+    [Header("Цветовая реакция на урон")] [SerializeField]
+    private Color damagedColor;
+
     [SerializeField] private Color currentColor;
     [SerializeField] private float damagedColorDuration;
     [SerializeField] private int damagedBlinkCount;
 
-    [Header("Масштабная реакция на урон")]
-    [SerializeField] private Vector3 damagedReScale;
+    [Header("Масштабная реакция на урон")] [SerializeField]
+    private Vector3 damagedReScale;
+
     [SerializeField] private float damagedReScaleDuration;
 
-    [Header("Смерть инопланетянина")]
-    [SerializeField] private float diedFadeDuration;
+    [Header("Смерть инопланетянина")] [SerializeField]
+    private float diedFadeDuration;
+
     [SerializeField] private Image alienImage;
 
-    [Header("Блуждание")] 
-    [SerializeField] private AlienWendering wander;
-    
-    [Header("Позиция")]
-    [SerializeField] private RectTransform alienTransform;
-    
+    [Header("Блуждание")] [SerializeField] private AlienWendering wander;
+
+    private bool wasAttackingInThisTurn = false;
+
+    [Header("Позиция")] [SerializeField] private RectTransform alienTransform;
+
     public RectTransform Target
     {
         set => target = value;
     }
-    
+
     private void SpawnAnimation()
     {
         transform.localScale = Vector3.zero;
         transform.DOScale(Vector3.one, spawnAnimationDuration).SetEase(Ease.OutBack);
     }
-    
+
     private void Awake()
     {
         wander.Initialize();
         wander.StartWandering();
         StartCoroutine(AttackLoop());
         InitAnimations();
-        
     }
-    
+
+    private void Update()
+    {
+        var distance = Vector3.Distance(transform.position, target.position);
+        if (distance <= 5 && !wasAttackingInThisTurn)
+        {
+            Debug.Log($"Дистанция {distance} пришленец {gameObject.name}");
+            baseHealth.TakeDamage(attackDamage);
+            wasAttackingInThisTurn = true;
+        }
+    }
+
+
     private void InitAnimations()
     {
         SpawnAnimation();
         currentColor = alienImage.color;
 
     }
-    
+
     public void GetDamage(int damageValue)
     {
         Debug.Log("Получен урон: " + damageValue);
@@ -92,12 +110,13 @@ public class Alien : MonoBehaviour
         seq.SetLoops(damagedBlinkCount, LoopType.Restart);
         seq.OnComplete(() => alienImage.color = currentColor);
     }
-    
+
     private IEnumerator AttackRoutine()
     {
         if (target == null) yield break;
 
         Debug.Log("Начало атаки инопланетянина!");
+        wasAttackingInThisTurn = false;
         wander.StopWandering();
 
         Vector3 fromWorld = alienTransform.position;
@@ -132,15 +151,22 @@ public class Alien : MonoBehaviour
         while (true)
         {
             yield return StartCoroutine(AttackRoutine());
-            yield return new WaitForSeconds(attackDelay); 
+            yield return new WaitForSeconds(attackDelay);
         }
     }
-    
-    
+
+
     private void Died()
     {
         Debug.Log("Инопланетянин уничтожен!");
         fakeColliderButton.interactable = false;
         alienImage.DOFade(0.0f, diedFadeDuration).SetEase(Ease.OutBack).OnComplete(() => Destroy(gameObject));
     }
+
+    public void AddBase(RectTransform target)
+    {
+        this.target = target;
+        baseHealth = target.GetComponent<BaseHeath>();
+    }
+
 }
