@@ -12,20 +12,22 @@ public class Player : MonoBehaviour
     public void FarmHeliy()
     {
         YG2.saves.heliy += YG2.saves.FarmHeliyAmount;
-        ClickedFarmButton.Invoke();
-        
+        ClickedFarmButton?.Invoke();
+        YG2.saves.ClickCount++;
     }
 
     public void FarmAqua()
     {
         YG2.saves.aquaculture += YG2.saves.FarmAquaAmount;
-        ClickedFarmButton.Invoke();
+        ClickedFarmButton?.Invoke();
+        YG2.saves.ClickCount++;
     }
 
     public void FarmBiomass()
     {
         YG2.saves.biomass += YG2.saves.FarmBioAmount;
-        ClickedFarmButton.Invoke();
+        ClickedFarmButton?.Invoke();
+        YG2.saves.ClickCount++;
     }
 
     public void OnDisable()

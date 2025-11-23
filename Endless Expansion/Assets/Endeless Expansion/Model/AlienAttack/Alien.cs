@@ -4,6 +4,7 @@ using DG.Tweening;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using YG;
 
 public class Alien : MonoBehaviour
 {
@@ -161,6 +162,7 @@ public class Alien : MonoBehaviour
         Debug.Log("Инопланетянин уничтожен!");
         fakeColliderButton.interactable = false;
         alienImage.DOFade(0.0f, diedFadeDuration).SetEase(Ease.OutBack).OnComplete(() => Destroy(gameObject));
+        YG2.saves.KilledAliensCount++;
     }
 
     public void AddBase(RectTransform target)

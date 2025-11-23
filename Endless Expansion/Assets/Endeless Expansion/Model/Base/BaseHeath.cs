@@ -9,6 +9,7 @@ public class BaseHeath : MonoBehaviour
     private float maxHealth = 15;
 
     public UnityEvent<float,float> OnHealthChanged;
+    public UnityEvent GameOver;
     
     public float MaxHealth => maxHealth;
 
@@ -25,13 +26,7 @@ public class BaseHeath : MonoBehaviour
         YG2.saves.BaseHealth = health;
         if (health == 0)
         {
-            GameOver();
+            GameOver?.Invoke();
         }
-    }
-    private void GameOver()
-    {
-        Debug.Log("Game Over!");
-        SceneManager.LoadScene(0);
-        SaveManager.Instance.SetDefaultParams();
     }
 }

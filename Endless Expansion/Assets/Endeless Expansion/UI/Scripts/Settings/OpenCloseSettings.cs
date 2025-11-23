@@ -22,6 +22,14 @@ public class OpenCloseSettings : MonoBehaviour
 
     [Header("Canvas Group для блокировки ввода при анимации")] [SerializeField]
     private CanvasGroup otherCanvasGroup;
+    
+    private bool canBeOpen = true;
+
+    public bool CanBeOpen
+    {
+        get => canBeOpen;
+        set => canBeOpen = value;
+    }
 
     private void Awake()
     {
@@ -49,15 +57,19 @@ public class OpenCloseSettings : MonoBehaviour
 
     private void OpenSettingsPanel()
     {
-        inputController.IsOpen = true;
-        settingsPanel.SetActive(true);
-        settingsPanelRectTransform.DOScale(defaultScale, duration)
-            .SetEase(Ease.OutBack)
-            .OnComplete((() =>
-                    {
-                        settingsCanvasGroup.interactable = true;
-                        otherCanvasGroup.interactable = false;
-                    }
-                ));
+        if (canBeOpen)
+        {
+            inputController.IsOpen = true;
+            settingsPanel.SetActive(true);
+            settingsPanelRectTransform.DOScale(defaultScale, duration)
+                .SetEase(Ease.OutBack)
+                .OnComplete((() =>
+                        {
+                            settingsCanvasGroup.interactable = true;
+                            otherCanvasGroup.interactable = false;
+                        }
+                    ));
+        }
+        
     }
 }

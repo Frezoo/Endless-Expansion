@@ -55,10 +55,10 @@ public class BaseLogic : MonoBehaviour
         }
         else
         {
-            Invoke("LoadBaseSaves",0.03f);
+            Invoke("LoadBaseSaves", 0.03f);
             Debug.Log("Подгрузка базы 1");
         }
-        
+
         DrawSellPrices();
     }
 
@@ -71,8 +71,10 @@ public class BaseLogic : MonoBehaviour
     public void SellHeliy()
     {
         var heliyToSell = Mathf.Clamp(YG2.saves.heliy, 0, MaxResourceCountToSell);
-        YG2.saves.money += Mathf.RoundToInt(heliyToSell * RewardForHeliy);
+        var award = Mathf.RoundToInt(heliyToSell * RewardForHeliy);
+        YG2.saves.money += award;
         YG2.saves.heliy -= Mathf.RoundToInt(heliyToSell);
+        YG2.saves.AllMoney += award;
         SoldResources?.Invoke();
         YG2.SaveProgress();
     }
@@ -80,7 +82,9 @@ public class BaseLogic : MonoBehaviour
     public void SellBiomass()
     {
         var biomassToSell = Mathf.Clamp(YG2.saves.biomass, 0, MaxResourceCountToSell);
-        YG2.saves.money += Mathf.RoundToInt(biomassToSell * RewardForBiomass);
+        var award = Mathf.RoundToInt(biomassToSell * RewardForBiomass);
+        YG2.saves.money += award;
+        YG2.saves.AllMoney += award;
         YG2.saves.biomass -= Mathf.RoundToInt(biomassToSell);
         SoldResources?.Invoke();
         YG2.SaveProgress();
@@ -89,7 +93,9 @@ public class BaseLogic : MonoBehaviour
     public void SellAquaculture()
     {
         var aquacultureToSell = Mathf.Clamp(YG2.saves.aquaculture, 0, MaxResourceCountToSell);
-        YG2.saves.money += Mathf.RoundToInt(aquacultureToSell * RewardForAquaculture);
+        var award = Mathf.RoundToInt(aquacultureToSell * RewardForAquaculture);
+        YG2.saves.AllMoney += award;
+        YG2.saves.money += award;
         YG2.saves.aquaculture -= Mathf.RoundToInt(aquacultureToSell);
         SoldResources?.Invoke();
         YG2.SaveProgress();
@@ -98,7 +104,9 @@ public class BaseLogic : MonoBehaviour
     public void SellNanocat()
     {
         var nanocatToSell = Mathf.Clamp(YG2.saves.nanocat, 0, MaxResourceCountToSell);
-        YG2.saves.money += Mathf.RoundToInt(nanocatToSell * RewardForNanocat);
+        var award = Mathf.RoundToInt(nanocatToSell * RewardForNanocat);
+        YG2.saves.AllMoney += award;
+        YG2.saves.money += award;
         YG2.saves.nanocat -= Mathf.RoundToInt(nanocatToSell);
         SoldResources?.Invoke();
         YG2.SaveProgress();
@@ -115,7 +123,7 @@ public class BaseLogic : MonoBehaviour
 
     private void LoadBaseSaves()
     {
-        baseLevel =  YG2.saves.BaseLevel;
+        baseLevel = YG2.saves.BaseLevel;
         ReDrawBase();
     }
 }
