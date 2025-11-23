@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     
     [SerializeField] private float damage = 3f;
     [SerializeField] private float lifeTime = 5f;
+    [SerializeField] private float bulletSpeed = 2000f;
     private RectTransform rectTransform;
     private void Awake()
     {
@@ -22,8 +23,7 @@ public class Bullet : MonoBehaviour
         {
             yield break;
         }
-    
-        float speed = 2000f; 
+        
     
         Vector3 targetWorldPos = target.position;
         Vector3 localTarget = rectTransform.parent.InverseTransformPoint(targetWorldPos);
@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < lifeTime)
         {
-            rectTransform.anchoredPosition += fixedDirection * speed * Time.deltaTime;
+            rectTransform.anchoredPosition += fixedDirection * bulletSpeed * Time.deltaTime;
 
             if (target != null)
             {
