@@ -3,6 +3,7 @@ using System.Collections;
 public class ThrowAlerts : MonoBehaviour
 {
     [SerializeField] private GameObject HaveNotEnoughMoneyAlert;
+    [SerializeField] private GameObject AlienAttackAlert;
     public static ThrowAlerts Instance;
     private Coroutine coroutine;
 
@@ -33,6 +34,20 @@ public class ThrowAlerts : MonoBehaviour
         }
         coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 1.5f, HaveNotEnoughMoneyAlert));
     }
+    
+    public void ThrowAlienAttackAlert()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+            if (AlienAttackAlert != null)
+            {
+                AlienAttackAlert.SetActive(false);
+            }
+        }
+        coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 1.5f, AlienAttackAlert));
+    }
+    
 
     private IEnumerator ShowAndHideAlert(float fadeDuration, float visibleTime, GameObject alert)
     {

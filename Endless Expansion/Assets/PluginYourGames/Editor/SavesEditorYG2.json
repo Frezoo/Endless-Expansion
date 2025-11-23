@@ -5,7 +5,7 @@
     "GeneralVolume": 0.06404078006744385,
     "MusicVolume": 0.432584285736084,
     "BaseLevel": 0,
-    "BaseHealth": 15.0,
+    "BaseHealth": 9.0,
     "FarmBioAmount": 1,
     "BioUpgradeCoast": 100.0,
     "BioLevel": 1,
@@ -29,5 +29,5 @@
         false,
         false
     ],
-    "idSave": 2587
+    "idSave": 2590
 }

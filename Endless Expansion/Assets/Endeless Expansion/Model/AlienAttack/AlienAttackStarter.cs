@@ -24,6 +24,7 @@ public class AlienAttackStarter : MonoBehaviour
                 if (Random.Range(0,1f) < alienAttackChance)
                 {
                     alienAttackEvent.StartAlienAttack(3);
+                    ThrowAlerts.Instance.ThrowAlienAttackAlert();
                 }
             }
         }
