@@ -11,7 +11,7 @@ public class Alien : MonoBehaviour
 {
 
     [Header("Показатели")] [SerializeField]
-    private int health;
+    private float health;
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float attackDamage;
@@ -93,7 +93,7 @@ public class Alien : MonoBehaviour
 
     }
 
-    public void GetDamage(int damageValue)
+    public void GetDamage(float damageValue)
     {
         Debug.Log("Получен урон: " + damageValue);
         PlayDamageAnimation();

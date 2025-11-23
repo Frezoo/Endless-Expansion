@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
-using UnityEngine; 
+using UnityEngine;
+using UnityEngine.Events;
 
 public class AlienAttackEvent : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class AlienAttackEvent : MonoBehaviour
     
     [SerializeField] private RectTransform attackTarget;
     [SerializeField] private bool isAttackActive;
+    
+    public List<Alien> Aliens => aliens;
+    
+    public UnityEvent StartAttack;
+    public UnityEvent EndAttack;
 
     public bool IsAttackActive
     {
@@ -46,6 +52,7 @@ public class AlienAttackEvent : MonoBehaviour
             aliens.Add(alien);
             yield return new WaitForSeconds(spawnDelay);
         }
+        StartAttack?.Invoke();
     }
 
     public void RemoveAlien(Alien Alien)
@@ -55,6 +62,7 @@ public class AlienAttackEvent : MonoBehaviour
         {
             ThrowAlerts.Instance.ThrowAlienAttackEndAlert();
             isAttackActive = false;
+            EndAttack?.Invoke();
             Debug.Log("Alien Attack Ended!");
         }
     }
