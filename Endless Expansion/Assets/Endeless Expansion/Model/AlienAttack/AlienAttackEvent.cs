@@ -42,9 +42,20 @@ public class AlienAttackEvent : MonoBehaviour
             var spawnPoint = availableList[Random.Range(0, availableList.Count)];
             usedSpawnPoints.Add(spawnPoint);
             var alien = Instantiate(alienPrefab, spawnPoint.position, Quaternion.identity, spawnPoint);
-            alien.AddBase(attackTarget);
+            alien.AddStartInfo(attackTarget,this);
             aliens.Add(alien);
             yield return new WaitForSeconds(spawnDelay);
+        }
+    }
+
+    public void RemoveAlien(Alien Alien)
+    {
+        aliens.Remove(Alien);
+        if (aliens.Count == 0)
+        {
+            ThrowAlerts.Instance.ThrowAlienAttackEndAlert();
+            isAttackActive = false;
+            Debug.Log("Alien Attack Ended!");
         }
     }
 }

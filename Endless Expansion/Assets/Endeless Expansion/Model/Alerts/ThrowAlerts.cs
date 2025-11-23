@@ -4,19 +4,16 @@ public class ThrowAlerts : MonoBehaviour
 {
     [SerializeField] private GameObject HaveNotEnoughMoneyAlert;
     [SerializeField] private GameObject AlienAttackAlert;
+    [SerializeField] private GameObject AlienAttackEndAlert;
     public static ThrowAlerts Instance;
     private Coroutine coroutine;
+    
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
     
@@ -26,7 +23,7 @@ public class ThrowAlerts : MonoBehaviour
     {
         if (coroutine != null)
         {
-            StopCoroutine(coroutine);
+            
             if (HaveNotEnoughMoneyAlert != null)
             {
                 HaveNotEnoughMoneyAlert.SetActive(false);
@@ -39,13 +36,25 @@ public class ThrowAlerts : MonoBehaviour
     {
         if (coroutine != null)
         {
-            StopCoroutine(coroutine);
+            
             if (AlienAttackAlert != null)
             {
                 AlienAttackAlert.SetActive(false);
             }
         }
         coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 1.5f, AlienAttackAlert));
+    }
+    
+    public void ThrowAlienAttackEndAlert()
+    {
+        if (coroutine != null)
+        {
+            if (AlienAttackEndAlert != null)
+            {
+                AlienAttackEndAlert.SetActive(false);
+            }
+        }
+        coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 1.5f, AlienAttackEndAlert));
     }
     
 

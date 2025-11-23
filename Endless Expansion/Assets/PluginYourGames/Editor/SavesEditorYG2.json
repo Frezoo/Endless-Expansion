@@ -5,13 +5,13 @@
     "GeneralVolume": 0.06404078006744385,
     "MusicVolume": 0.432584285736084,
     "BaseLevel": 0,
-    "BaseHealth": 9.0,
+    "BaseHealth": 5.0,
     "FarmBioAmount": 1,
     "BioUpgradeCoast": 100.0,
     "BioLevel": 1,
-    "ClickCount": 25,
+    "ClickCount": 0,
     "AllMoney": 0.0,
-    "KilledAliensCount": 7,
+    "KilledAliensCount": 12,
     "FarmHeliyAmount": 1,
     "HeliyUpgradeCoast": 100.0,
     "HeliyLevel": 1,
@@ -29,5 +29,5 @@
         false,
         false
     ],
-    "idSave": 2590
+    "idSave": 2615
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
@@ -51,6 +52,8 @@ public class Alien : MonoBehaviour
     private bool wasAttackingInThisTurn = false;
 
     [Header("Позиция")] [SerializeField] private RectTransform alienTransform;
+    
+    private AlienAttackEvent alienAttackEvent;
 
     public RectTransform Target
     {
@@ -161,14 +164,19 @@ public class Alien : MonoBehaviour
     {
         Debug.Log("Инопланетянин уничтожен!");
         fakeColliderButton.interactable = false;
-        alienImage.DOFade(0.0f, diedFadeDuration).SetEase(Ease.OutBack).OnComplete(() => Destroy(gameObject));
+        alienImage.DOFade(0.0f, diedFadeDuration).SetEase(Ease.OutBack).OnComplete(() =>
+        {
+            alienAttackEvent.RemoveAlien(this);
+            Destroy(gameObject);
+        });
         YG2.saves.KilledAliensCount++;
     }
 
-    public void AddBase(RectTransform target)
+    public void AddStartInfo(RectTransform Target, AlienAttackEvent AlienEvent)
     {
-        this.target = target;
-        baseHealth = target.GetComponent<BaseHeath>();
+        target = Target;
+        baseHealth = Target.GetComponent<BaseHeath>();
+        alienAttackEvent = AlienEvent;
     }
 
 }
