@@ -14,7 +14,9 @@ public class SaveManager : MonoBehaviour
     public int StandardHeliy;
     public int StandardMoney;
     public int StandardNanocat;
+    public int StandardAquaculture = 0;
     public int StandardBaseHealth;
+    
     
     private void Awake()
     {
@@ -39,8 +41,13 @@ public class SaveManager : MonoBehaviour
         YG2.saves.heliy = StandardHeliy;
         YG2.saves.money = StandardMoney;
         YG2.saves.nanocat = StandardNanocat;
+        YG2.saves.aquaculture = StandardAquaculture;
+
+        YG2.saves.BaseCurrentLevel = 1;
         YG2.saves.BaseLevel = BaseLevel.Base;
-        YG2.saves.BaseHealth = StandardBaseHealth;
+        YG2.saves.BaseHealth = YG2.saves.MaxBaseHealth;
+
+        YG2.saves.effectivityWasUpgraded = false;
         
         YG2.saves.FarmHeliyAmount = 1;
         YG2.saves.HeliyLevel = 1;

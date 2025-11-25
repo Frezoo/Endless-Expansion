@@ -10,6 +10,8 @@ public class UiController : MonoBehaviour
     [SerializeField] private TMP_Text heliyText;
     [SerializeField] private TMP_Text nanocatText;
     [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private TMP_Text aquacultureText;
+    [SerializeField] private TMP_Text baseLevelText;
 
     [Header("Модель")] 
     [SerializeField] private Player player;
@@ -38,5 +40,7 @@ public class UiController : MonoBehaviour
         heliyText.text = YG2.saves.heliy.ToString();
         nanocatText.text = YG2.saves.nanocat.ToString();
         moneyText.text = YG2.saves.money.ToString();
+        aquacultureText.text = YG2.saves.aquaculture.ToString();
+        baseLevelText.text = YG2.saves.BaseCurrentLevel.ToString();
     }
 }

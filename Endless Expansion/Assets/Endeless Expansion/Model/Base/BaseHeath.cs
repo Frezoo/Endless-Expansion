@@ -6,7 +6,7 @@ using YG;
 public class BaseHeath : MonoBehaviour
 {
     [SerializeField] private float health = 15;
-    private float maxHealth = 15;
+    private float maxHealth => YG2.saves.MaxBaseHealth;
 
     public UnityEvent<float,float> OnHealthChanged;
     public UnityEvent GameOver;
@@ -15,7 +15,7 @@ public class BaseHeath : MonoBehaviour
 
     private void Awake()
     {
-        health = YG2.saves.BaseHealth == 0? maxHealth : YG2.saves.BaseHealth;
+        health = YG2.saves.BaseHealth == 0? YG2.saves.MaxBaseHealth : YG2.saves.BaseHealth;
     }
 
     public void TakeDamage(float amount)
