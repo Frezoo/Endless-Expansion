@@ -21,6 +21,7 @@ public class LaborotoryLogic : MonoBehaviour
 
     private void Awake()
     {
+        CheckUpgrade();
         upgradeEffectivityButton.interactable = !YG2.saves.effectivityWasUpgraded;
         upgradeEffectivityButton.onClick.AddListener(UpgradeEffectivity);
         ReDraw();
@@ -66,6 +67,16 @@ public class LaborotoryLogic : MonoBehaviour
         else
         {
             ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
+        }
+    }
+
+    private void CheckUpgrade()
+    {
+        if (YG2.saves.effectivityWasUpgraded == true)
+        {
+            NeedAquaToSyntez = Mathf.RoundToInt(NeedAquaToSyntez * 0.8f);
+            NeedBiomassToSyntez = Mathf.RoundToInt(NeedBiomassToSyntez * 0.8f);
+            NeedHeliyToSyntez = Mathf.RoundToInt(NeedHeliyToSyntez * 0.8f);
         }
     }
 }
