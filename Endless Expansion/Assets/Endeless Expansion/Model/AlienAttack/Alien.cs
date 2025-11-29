@@ -168,11 +168,11 @@ public class Alien : MonoBehaviour
     private void Died()
     {
         Debug.Log("Инопланетянин уничтожен!");
+        alienAttackEvent.RemoveAlien(this);
         DiedEvent?.Invoke();
         fakeColliderButton.interactable = false;
         alienImage.DOFade(0.0f, diedFadeDuration).SetEase(Ease.OutBack).OnComplete(() =>
         {
-            alienAttackEvent.RemoveAlien(this);
             Destroy(gameObject);
         });
         YG2.saves.KilledAliensCount++;

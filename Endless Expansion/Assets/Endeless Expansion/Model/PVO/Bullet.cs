@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float lifeTime = 5f;
     [SerializeField] private float bulletSpeed = 2000f;
     private RectTransform rectTransform;
+    [SerializeField] private RectTransform target;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -19,8 +20,10 @@ public class Bullet : MonoBehaviour
 
     public IEnumerator RocketAttackRoutine(RectTransform target)
     {
+        this.target = target;
         if (target == null || rectTransform.parent == null)
         {
+            Destroy(gameObject);
             yield break;
         }
         
@@ -44,6 +47,10 @@ public class Bullet : MonoBehaviour
                 localTarget = rectTransform.parent.InverseTransformPoint(targetWorldPos);
                 targetPos = new Vector2(localTarget.x, localTarget.y);
                 var distance = Vector2.Distance(rectTransform.anchoredPosition, targetPos);
+                if (distance < 2f)
+                {
+                    Destroy(gameObject);
+                }
                 if (distance < 15f)
                 {
                     var alien = target.GetComponent<Alien>();

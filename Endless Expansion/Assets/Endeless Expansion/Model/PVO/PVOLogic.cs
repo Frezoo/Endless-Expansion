@@ -13,9 +13,9 @@ public class PVOLogic : MonoBehaviour
     
     
     [SerializeField] private Bullet bullet;
-
-    private RectTransform target;
-    private Alien targetAlien;
+    
+    [SerializeField] private RectTransform target;
+    [SerializeField] private Alien targetAlien;
     
 
     private void Awake()
@@ -66,9 +66,13 @@ public class PVOLogic : MonoBehaviour
     private void GetNewTarget()
     {
         targetAlien.DiedEvent.RemoveListener(GetNewTarget);
-        targetAlien = alienAttackEvent.Aliens[Random.Range(0, alienAttackEvent.Aliens.Count)];
-        targetAlien.DiedEvent.AddListener(GetNewTarget);
-        target = targetAlien.GetComponent<RectTransform>();
+        if (alienAttackEvent.Aliens.Count >= 1)
+        {
+            targetAlien = alienAttackEvent.Aliens[Random.Range(0, alienAttackEvent.Aliens.Count)];
+            targetAlien.DiedEvent.AddListener(GetNewTarget);
+            target = targetAlien.GetComponent<RectTransform>();
+        }
+        
     }
     
     private void OnAttackEnded()
