@@ -64,6 +64,8 @@ public class SaveManager : MonoBehaviour
         YG2.saves.KilledAliensCount = 0;
         YG2.saves.ClickCount = 0;
         YG2.saves.AllMoney = 0;
+
+        YG2.saves.CurrentPhase = 1;
         
         YG2.SaveProgress();
     }

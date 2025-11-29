@@ -11,7 +11,7 @@ namespace YG
 
         public float BaseHealth;
         
-        public float MaxBaseHealth => 500 * Mathf.Pow(1.4f, BaseCurrentLevel - 1);
+        public float MaxBaseHealth => 200 * Mathf.Pow(1.4f, BaseCurrentLevel - 1);
     }
 }
 

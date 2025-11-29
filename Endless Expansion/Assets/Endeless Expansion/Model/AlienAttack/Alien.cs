@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
+
+
 using UnityEngine.UI;
 using YG;
 
@@ -54,6 +57,8 @@ public class Alien : MonoBehaviour
     [Header("Позиция")] [SerializeField] private RectTransform alienTransform;
     
     private AlienAttackEvent alienAttackEvent;
+
+    public UnityEvent DiedEvent;
 
     public RectTransform Target
     {
@@ -163,6 +168,7 @@ public class Alien : MonoBehaviour
     private void Died()
     {
         Debug.Log("Инопланетянин уничтожен!");
+        DiedEvent?.Invoke();
         fakeColliderButton.interactable = false;
         alienImage.DOFade(0.0f, diedFadeDuration).SetEase(Ease.OutBack).OnComplete(() =>
         {

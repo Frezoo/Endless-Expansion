@@ -46,6 +46,7 @@ public class BaseUpgradeLogic : MonoBehaviour
             YG2.saves.BaseCurrentLevel++;
             if(baseUpdatePriceText != null) baseUpdatePriceText.text = YG2.saves.BaseUpgradeCoast + "$";
             baseLogic?.SoldResources?.Invoke();
+            PhaseController.instance.CheckTogglesPhase2();
         }
     }
     

@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 using YG;
 
 
 public class BuyLaborotory : MonoBehaviour
 {
     [SerializeField] private BaseLogic baseLogic;
+
+
     public void TryBuyLaborotory()
     {
         if (YG2.saves.money >= 2500)
@@ -15,6 +18,7 @@ public class BuyLaborotory : MonoBehaviour
             YG2.SaveProgress();
             ChangeStantions.Instance.GoToLaboratoryStantion();
             baseLogic.ReDrawBase();
+            PhaseController.instance.CheckTogglesPhase2();
         }
         else
         {

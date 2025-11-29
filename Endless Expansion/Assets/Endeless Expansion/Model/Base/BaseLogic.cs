@@ -80,6 +80,7 @@ public class BaseLogic : MonoBehaviour
             YG2.saves.AllMoney += award;
             SoldResources?.Invoke();
             YG2.SaveProgress();
+            PhaseController.instance.CheckTogglesPhase2();
         }
         
     }
@@ -95,6 +96,7 @@ public class BaseLogic : MonoBehaviour
             YG2.saves.biomass -= Mathf.RoundToInt(biomassToSell);
             SoldResources?.Invoke();
             YG2.SaveProgress();
+            PhaseController.instance.CheckTogglesPhase2();
         }
         
     }
@@ -110,6 +112,7 @@ public class BaseLogic : MonoBehaviour
             YG2.saves.aquaculture -= Mathf.RoundToInt(aquacultureToSell);
             SoldResources?.Invoke();
             YG2.SaveProgress();
+            PhaseController.instance.CheckTogglesPhase2();
         }
         
     }
@@ -125,6 +128,7 @@ public class BaseLogic : MonoBehaviour
             YG2.saves.nanocat -= Mathf.RoundToInt(nanocatToSell);
             SoldResources?.Invoke();
             YG2.SaveProgress();
+            PhaseController.instance.CheckTogglesPhase2();
         }
         
     }
