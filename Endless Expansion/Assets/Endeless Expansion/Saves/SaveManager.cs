@@ -32,7 +32,7 @@ public class SaveManager : MonoBehaviour
 
         StartCoroutine(SavePeriod());
 
-        YG2.onDefaultSaves += FristStartSetup;
+        YG2.onDefaultSaves += FirstStartSetup;
     }
 
     public void SetDefaultParams()
@@ -64,13 +64,15 @@ public class SaveManager : MonoBehaviour
         YG2.saves.KilledAliensCount = 0;
         YG2.saves.ClickCount = 0;
         YG2.saves.AllMoney = 0;
+        
+        YG2.saves.OrbitalMirrorIsBuilded = false;
 
         YG2.saves.CurrentPhase = 1;
         
         YG2.SaveProgress();
     }
     
-    public void FristStartSetup()
+    public void FirstStartSetup()
     {
         SetDefaultParams();
         

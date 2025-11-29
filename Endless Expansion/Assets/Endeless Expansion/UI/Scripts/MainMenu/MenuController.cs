@@ -16,7 +16,7 @@ public class MenuController : MonoBehaviour
         resumeGameButton.onClick.AddListener(resumeGame);
         if (YG2.isFirstGameSession)
         {
-            SaveManager.Instance.FristStartSetup();
+            SaveManager.Instance.FirstStartSetup();
         }
     }
 
