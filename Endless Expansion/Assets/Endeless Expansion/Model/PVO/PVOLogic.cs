@@ -10,7 +10,7 @@ public class PVOLogic : MonoBehaviour
 
     [SerializeField] private RectTransform head;
     [SerializeField] private Transform firePoint;
-    
+    [SerializeField] private Transform rocketPool;
     
     [SerializeField] private Bullet bullet;
     
@@ -37,7 +37,7 @@ public class PVOLogic : MonoBehaviour
         StartCoroutine(FixOnTargetRoutine());
         while (true)
         {
-            var rocket = Instantiate(bullet,firePoint.position,transform.rotation,transform);
+            var rocket = Instantiate(bullet,firePoint.position,transform.rotation,rocketPool);
             rocket.StartCoroutine(rocket.RocketAttackRoutine(target));
             yield return new WaitForSeconds(attackDelay);
         }

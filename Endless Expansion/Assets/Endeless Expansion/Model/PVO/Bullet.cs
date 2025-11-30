@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
         Vector2 targetPos = new Vector2(localTarget.x, localTarget.y);
 
         Vector2 fixedDirection = (targetPos - rectTransform.anchoredPosition).normalized;
-        float angle = Mathf.Atan2(fixedDirection.y, fixedDirection.x) * Mathf.Rad2Deg + 90f;
+        float angle = Mathf.Atan2(fixedDirection.y, fixedDirection.x) * Mathf.Rad2Deg - 90f;
         rectTransform.localRotation = Quaternion.Euler(0, 0, angle);
 
         float elapsed = 0f;

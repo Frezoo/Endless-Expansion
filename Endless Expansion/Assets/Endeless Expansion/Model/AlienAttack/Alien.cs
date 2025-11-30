@@ -19,7 +19,7 @@ public class Alien : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float attackDamage;
     [SerializeField] private float attackDelay;
-    [SerializeField] private float maxDistanceBeyondTarget = 350f;
+    [SerializeField] private float maxDistanceBeyondTarget = 2;
     private bool isAttacking;
 
     [Header("Fake Collider")] [SerializeField]
@@ -57,6 +57,8 @@ public class Alien : MonoBehaviour
     [Header("Позиция")] [SerializeField] private RectTransform alienTransform;
     
     private AlienAttackEvent alienAttackEvent;
+
+    [SerializeField] private GameObject trailObject;
 
     public UnityEvent DiedEvent;
 
@@ -139,8 +141,8 @@ public class Alien : MonoBehaviour
         Vector3 destWorld = toWorld + limitedDir;
 
         float distance = (destWorld - fromWorld).magnitude;
-        float attackDuration = Mathf.Clamp(distance / 200f, 0.3f, 1.5f);
-
+        float attackDuration = Mathf.Clamp(distance / 150f, 0.8f, 1.4f);
+    
         Vector3 destLocal = alienTransform.parent.InverseTransformPoint(destWorld);
         Vector2 attackEndPosition = new Vector2(destLocal.x, destLocal.y);
 
@@ -168,6 +170,7 @@ public class Alien : MonoBehaviour
     private void Died()
     {
         Debug.Log("Инопланетянин уничтожен!");
+        trailObject.SetActive(false);
         alienAttackEvent.RemoveAlien(this);
         DiedEvent?.Invoke();
         fakeColliderButton.interactable = false;
