@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using YG;
 
@@ -18,6 +19,7 @@ public class LaborotoryLogic : MonoBehaviour
     [SerializeField] private Button upgradeEffectivityButton;
 
 
+    public UnityEvent Syntez;
 
     private void Awake()
     {
@@ -43,6 +45,7 @@ public class LaborotoryLogic : MonoBehaviour
             YG2.saves.biomass -= NeedBiomassToSyntez;
             YG2.saves.aquaculture -= NeedAquaToSyntez;
             YG2.saves.nanocat += NanocatPerSyntez;
+            Syntez?.Invoke();
             YG2.SaveProgress();
         }
         else

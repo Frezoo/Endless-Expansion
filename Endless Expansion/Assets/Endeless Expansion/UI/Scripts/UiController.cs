@@ -17,24 +17,28 @@ public class UiController : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private BaseLogic baseLogic;
     [SerializeField] private AutoFarm autoFarm;
-    
+    [SerializeField] private LaborotoryLogic laborotory;
 
+    public static UiController Instance;
+    
+    
     private void Awake()
     {
+        Instance = this;
         if (player == null)
         {
             Debug.LogWarning("Отсутсвует игрок");
             return;
         }
-
+        
         ReDrawHaracteristic();
         player.ClickedFarmButton.AddListener(ReDrawHaracteristic);
         baseLogic.SoldResources.AddListener(ReDrawHaracteristic);
         autoFarm.OnTick.AddListener(ReDrawHaracteristic);
+        laborotory.Syntez.AddListener(ReDrawHaracteristic);
         
     }
-
-    private void ReDrawHaracteristic()
+    public void ReDrawHaracteristic()
     {
         biomassText.text = YG2.saves.biomass.ToString();
         heliyText.text = YG2.saves.heliy.ToString();

@@ -80,7 +80,10 @@ public class BaseLogic : MonoBehaviour
             YG2.saves.AllMoney += award;
             SoldResources?.Invoke();
             YG2.SaveProgress();
-            PhaseController.instance.CheckTogglesPhase2();
+            if(YG2.saves.CurrentPhase == 1)
+                PhaseController.instance.CheckTogglesPhase2();
+            if(YG2.saves.CurrentPhase == 2)
+                PhaseController.instance.CheckTogglesToPhase3();
         }
         
     }
@@ -96,7 +99,10 @@ public class BaseLogic : MonoBehaviour
             YG2.saves.biomass -= Mathf.RoundToInt(biomassToSell);
             SoldResources?.Invoke();
             YG2.SaveProgress();
-            PhaseController.instance.CheckTogglesPhase2();
+            if(YG2.saves.CurrentPhase == 1)
+                PhaseController.instance.CheckTogglesPhase2();
+            if(YG2.saves.CurrentPhase == 2)
+                PhaseController.instance.CheckTogglesToPhase3();
         }
         
     }
@@ -112,7 +118,10 @@ public class BaseLogic : MonoBehaviour
             YG2.saves.aquaculture -= Mathf.RoundToInt(aquacultureToSell);
             SoldResources?.Invoke();
             YG2.SaveProgress();
-            PhaseController.instance.CheckTogglesPhase2();
+            if(YG2.saves.CurrentPhase == 1)
+                PhaseController.instance.CheckTogglesPhase2();
+            if(YG2.saves.CurrentPhase == 2)
+                PhaseController.instance.CheckTogglesToPhase3();
         }
         
     }
@@ -128,7 +137,10 @@ public class BaseLogic : MonoBehaviour
             YG2.saves.nanocat -= Mathf.RoundToInt(nanocatToSell);
             SoldResources?.Invoke();
             YG2.SaveProgress();
-            PhaseController.instance.CheckTogglesPhase2();
+            if(YG2.saves.CurrentPhase == 1)
+                PhaseController.instance.CheckTogglesPhase2();
+            if(YG2.saves.CurrentPhase == 2)
+                PhaseController.instance.CheckTogglesToPhase3();
         }
         
     }

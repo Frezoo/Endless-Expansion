@@ -5,6 +5,7 @@ public class ThrowAlerts : MonoBehaviour
     [SerializeField] private GameObject HaveNotEnoughMoneyAlert;
     [SerializeField] private GameObject AlienAttackAlert;
     [SerializeField] private GameObject AlienAttackEndAlert;
+    [SerializeField] private GameObject NewPhaseAlert;
     public static ThrowAlerts Instance;
     private Coroutine coroutine;
     
@@ -55,6 +56,18 @@ public class ThrowAlerts : MonoBehaviour
             }
         }
         coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 1.5f, AlienAttackEndAlert));
+    }
+    
+    public void ThrowNewPhaseAlert()
+    {
+        if (coroutine != null)
+        {
+            if (NewPhaseAlert != null)
+            {
+                NewPhaseAlert.SetActive(false);
+            }
+        }
+        coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 1.5f, NewPhaseAlert));
     }
     
 

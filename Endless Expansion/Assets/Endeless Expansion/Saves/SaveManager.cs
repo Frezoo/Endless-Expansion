@@ -66,6 +66,8 @@ public class SaveManager : MonoBehaviour
         YG2.saves.AllMoney = 0;
         
         YG2.saves.OrbitalMirrorIsBuilded = false;
+        YG2.saves.AtmosferProcessorIsBuilded = false;
+        YG2.saves.BioIncubaotrIsBuilded = false;
 
         YG2.saves.CurrentPhase = 1;
         
