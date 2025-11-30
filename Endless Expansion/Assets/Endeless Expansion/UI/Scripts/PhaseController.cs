@@ -8,6 +8,9 @@ public class PhaseController : MonoBehaviour
     [SerializeField] private TMP_Text phaseText;
     [SerializeField] private GameObject secondPhasePanel;
     [SerializeField] private GameObject thirdPhasePanel;
+    [SerializeField] private Image planet;
+    [SerializeField] private Sprite planetPhase1;
+    [SerializeField] private Sprite planetPhase2;
     
     [Header("Phase 1")]
     [SerializeField] private Toggle phase1Toggle1;
@@ -85,6 +88,7 @@ public class PhaseController : MonoBehaviour
                 thirdPhasePanel.SetActive(false);
                 phase1BuyPanel.SetActive(true);
                 phase2BuyPanel.SetActive(false);
+                planet.sprite = planetPhase1;
                 break;
             case 2:
                 phaseText.text = "2";
@@ -92,11 +96,14 @@ public class PhaseController : MonoBehaviour
                 thirdPhasePanel.SetActive(true);
                 phase1BuyPanel.SetActive(false);
                 phase2BuyPanel.SetActive(true);
+                planet.sprite = planetPhase2;
+                CheckBuildingsToPhase3();
                 break;
             case 3:
                 phaseText.text = "3";
                 secondPhasePanel.SetActive(false);
                 thirdPhasePanel.SetActive(true);
+                planet.sprite = planetPhase2;
                 break;
         }
     }
