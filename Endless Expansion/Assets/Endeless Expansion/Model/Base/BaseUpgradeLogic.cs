@@ -51,6 +51,10 @@ public class BaseUpgradeLogic : MonoBehaviour
             if(YG2.saves.CurrentPhase == 2)
                 PhaseController.instance.CheckTogglesToPhase3();
         }
+        else
+        {
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
+        }
     }
     
     private void UpgradeHeliumCondenser()

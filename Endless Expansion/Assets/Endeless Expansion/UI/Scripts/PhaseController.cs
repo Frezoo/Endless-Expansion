@@ -8,6 +8,7 @@ public class PhaseController : MonoBehaviour
     [SerializeField] private TMP_Text phaseText;
     [SerializeField] private GameObject secondPhasePanel;
     [SerializeField] private GameObject thirdPhasePanel;
+    [SerializeField] private GameObject gameEndPanel;
     [SerializeField] private Image planet;
     [SerializeField] private Sprite planetPhase1;
     [SerializeField] private Sprite planetPhase2;
@@ -24,9 +25,15 @@ public class PhaseController : MonoBehaviour
     [SerializeField] private Toggle phase2Toggle3;
     [SerializeField] private Toggle phase2Toggle4;
     [SerializeField] private Toggle phase2Toggle5;
+    
+    [Header("End")]
+    [SerializeField] private Toggle endToggle1;
+    [SerializeField] private Toggle endToggle2;
+    
 
     [SerializeField] private GameObject phase2BuyPanel;
     [SerializeField] private GameObject phase1BuyPanel;
+    [SerializeField] private GameObject endBuyPanel;
     [SerializeField] private GameObject buyAtmosferProcessor;
     [SerializeField] private GameObject buyOrbitalMirror;
     [SerializeField] private GameObject buyBioIncubator;
@@ -47,6 +54,11 @@ public class PhaseController : MonoBehaviour
         {
             instance.CheckTogglesToPhase3();
             CheckBuildingsToPhase3();
+        }
+
+        if (YG2.saves.CurrentPhase == 3)
+        {
+            CheckTogglesEnd();
         }
             
         
@@ -90,6 +102,7 @@ public class PhaseController : MonoBehaviour
                 thirdPhasePanel.SetActive(false);
                 phase1BuyPanel.SetActive(true);
                 phase2BuyPanel.SetActive(false);
+                gameEndPanel.SetActive(false);
                 planet.sprite = planetPhase1;
                 break;
             case 2:
@@ -98,14 +111,18 @@ public class PhaseController : MonoBehaviour
                 thirdPhasePanel.SetActive(true);
                 phase1BuyPanel.SetActive(false);
                 phase2BuyPanel.SetActive(true);
+                gameEndPanel.SetActive(false);
                 planet.sprite = planetPhase2;
                 CheckBuildingsToPhase3();
                 break;
             case 3:
                 phaseText.text = "3";
                 secondPhasePanel.SetActive(false);
-                thirdPhasePanel.SetActive(true);
+                thirdPhasePanel.SetActive(false);
+                gameEndPanel.SetActive(true);
+                endBuyPanel.SetActive(true);
                 planet.sprite = planetPhase3;
+                CheckTogglesEnd();
                 break;
         }
     }
@@ -139,6 +156,23 @@ public class PhaseController : MonoBehaviour
             ThrowAlerts.Instance.ThorPhase2Alert();
         }
     }
+    
+    public void CheckTogglesEnd()
+    {
+        if (YG2.saves.ColonyIsBuilded)
+        {
+            endToggle1.isOn = true;
+        }
+
+        if (YG2.saves.IZIsBuilded && YG2.saves.RededentalAreaIsBuilded && YG2.saves.SQIsBuilded &&
+            YG2.saves.TNIsBuilded && YG2.saves.ECIsBuilded && YG2.saves.GIsBuilded && YG2.saves.UIsbuilded)
+        {
+            endToggle2.isOn = true;
+            Win.instance.OnWin();
+            Debug.Log("КОНЕЦ СУКА УРА");
+        }
+    }
+    
     public void CheckTogglesToPhase3()
     {
         if (YG2.saves.AtmosferProcessorIsBuilded)

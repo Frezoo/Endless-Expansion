@@ -69,6 +69,15 @@ public class SaveManager : MonoBehaviour
         YG2.saves.AtmosferProcessorIsBuilded = false;
         YG2.saves.BioIncubaotrIsBuilded = false;
 
+        YG2.saves.ColonyIsBuilded = false;
+        YG2.saves.RededentalAreaIsBuilded = false;
+        YG2.saves.SQIsBuilded = false;
+        YG2.saves.UIsbuilded = false;
+        YG2.saves.TNIsBuilded = false;
+        YG2.saves.ECIsBuilded = false;
+        YG2.saves.GIsBuilded = false;
+        YG2.saves.IZIsBuilded = false;
+
         YG2.saves.CurrentPhase = 1;
         
         YG2.SaveProgress();
