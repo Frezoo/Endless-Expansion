@@ -6,6 +6,9 @@ public class ThrowAlerts : MonoBehaviour
     [SerializeField] private GameObject AlienAttackAlert;
     [SerializeField] private GameObject AlienAttackEndAlert;
     [SerializeField] private GameObject NewPhaseAlert;
+    [SerializeField] private GameObject Phase1Alert;
+    [SerializeField] private GameObject Phase2Alert;
+    [SerializeField] private GameObject Phase3Alert;
     public static ThrowAlerts Instance;
     private Coroutine coroutine;
     
@@ -68,6 +71,40 @@ public class ThrowAlerts : MonoBehaviour
             }
         }
         coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 1.5f, NewPhaseAlert));
+    }
+    
+    public void ThorPhase1Alert()
+    {
+        if (coroutine != null)
+        {
+            if (Phase1Alert != null)
+            {
+                Phase1Alert.SetActive(false);
+            }
+        }
+        coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 3f, Phase1Alert));
+    }
+    public void ThorPhase2Alert()
+    {
+        if (coroutine != null)
+        {
+            if (Phase2Alert != null)
+            {
+                Phase2Alert.SetActive(false);
+            }
+        }
+        coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 3f, Phase2Alert));
+    }
+    public void ThorPhase3Alert()
+    {
+        if (coroutine != null)
+        {
+            if (Phase3Alert != null)
+            {
+                Phase3Alert.SetActive(false);
+            }
+        }
+        coroutine =  StartCoroutine(ShowAndHideAlert(0.25f, 3f, Phase3Alert));
     }
     
 

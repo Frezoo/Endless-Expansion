@@ -11,6 +11,7 @@ public class PhaseController : MonoBehaviour
     [SerializeField] private Image planet;
     [SerializeField] private Sprite planetPhase1;
     [SerializeField] private Sprite planetPhase2;
+    [SerializeField] private Sprite planetPhase3;
     
     [Header("Phase 1")]
     [SerializeField] private Toggle phase1Toggle1;
@@ -82,7 +83,8 @@ public class PhaseController : MonoBehaviour
         switch (YG2.saves.CurrentPhase)
         {
             case 1:
-                
+                if(YG2.saves.ClickCount == 0)
+                    ThrowAlerts.Instance.ThorPhase1Alert();
                 phaseText.text = "1";
                 secondPhasePanel.SetActive(true);
                 thirdPhasePanel.SetActive(false);
@@ -103,7 +105,7 @@ public class PhaseController : MonoBehaviour
                 phaseText.text = "3";
                 secondPhasePanel.SetActive(false);
                 thirdPhasePanel.SetActive(true);
-                planet.sprite = planetPhase2;
+                planet.sprite = planetPhase3;
                 break;
         }
     }
@@ -134,6 +136,7 @@ public class PhaseController : MonoBehaviour
             ThrowAlerts.Instance.ThrowNewPhaseAlert();
             YG2.saves.CurrentPhase = 2;
             DrawPhase();
+            ThrowAlerts.Instance.ThorPhase2Alert();
         }
     }
     public void CheckTogglesToPhase3()
@@ -173,6 +176,7 @@ public class PhaseController : MonoBehaviour
             ThrowAlerts.Instance.ThrowNewPhaseAlert();
             YG2.saves.CurrentPhase = 3;
             DrawPhase();
+            ThrowAlerts.Instance.ThorPhase3Alert();
         }
         
     }
