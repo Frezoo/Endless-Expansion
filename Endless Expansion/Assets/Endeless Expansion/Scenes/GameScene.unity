@@ -5751,7 +5751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac953d7919a69940bc7041f1bdb0e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alienAttackChance: 0.249
+  alienAttackChance: 0
   tryInterval: 7
   alienAttackEvent: {fileID: 414145645}
 --- !u!4 &414145647

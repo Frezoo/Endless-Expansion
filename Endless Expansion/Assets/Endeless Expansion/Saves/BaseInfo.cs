@@ -7,7 +7,7 @@ namespace YG
         public BaseLevel BaseLevel;
 
         public int BaseCurrentLevel;
-        public int BaseUpgradeCoast => Mathf.RoundToInt(150* Mathf.Pow(1.7f, BaseCurrentLevel-1));
+        public int BaseUpgradeCoast => Mathf.RoundToInt(150* Mathf.Pow(1.3f, BaseCurrentLevel-1));
 
         public float BaseHealth;
         

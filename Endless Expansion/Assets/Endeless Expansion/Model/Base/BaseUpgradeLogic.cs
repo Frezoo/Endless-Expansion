@@ -63,7 +63,7 @@ public class BaseUpgradeLogic : MonoBehaviour
             YG2.saves.HeliyLevel += 1;
             YG2.saves.HeliyUpgradeCoast = 100 * YG2.saves.HeliyLevel * 1.5f;
             upgradeHeliumCondenserCost = YG2.saves.HeliyUpgradeCoast;
-            YG2.saves.FarmHeliyAmount = 3 * YG2.saves.HeliyLevel;
+            YG2.saves.FarmHeliyAmount = 3 * (int)Mathf.Pow(YG2.saves.HeliyLevel,1.5f);
             if (heliumCondenserUpgradePriceText != null) heliumCondenserUpgradePriceText.text = $"{upgradeHeliumCondenserCost}$+{YG2.saves.HeliyUpgradeCoastResource}";
             baseLogic?.SoldResources?.Invoke();
             YG2.SaveProgress();
@@ -83,7 +83,7 @@ public class BaseUpgradeLogic : MonoBehaviour
             YG2.saves.biomass -= Mathf.RoundToInt(YG2.saves.BioUpgradeCoastResource);
             YG2.saves.BioLevel += 1;
             YG2.saves.BioUpgradeCoast = 100 * YG2.saves.BioLevel * 1.5f;
-            YG2.saves.FarmBioAmount = 3 * YG2.saves.BioLevel;
+            YG2.saves.FarmBioAmount = 3 * (int)Mathf.Pow(YG2.saves.BioLevel,1.5f);
             upgradeBiomassCollectorCost = YG2.saves.BioUpgradeCoast;
             if (biomassCollectorUpgradePriceText != null) biomassCollectorUpgradePriceText.text = $"{upgradeBiomassCollectorCost}$+{YG2.saves.BioUpgradeCoastResource}";
             baseLogic?.SoldResources?.Invoke();
@@ -104,7 +104,7 @@ public class BaseUpgradeLogic : MonoBehaviour
             YG2.saves.aquaculture -= Mathf.RoundToInt(YG2.saves.AquaUpgradeCoastResource);
             YG2.saves.AquaLevel += 1;
             YG2.saves.AquaUpgradeCoast = 100 * YG2.saves.AquaLevel * 1.5f;
-            YG2.saves.FarmAquaAmount = 3 * YG2.saves.AquaLevel;
+            YG2.saves.FarmAquaAmount = 3 * (int)Mathf.Pow(YG2.saves.AquaLevel,1.5f);;
             upgradeAquacultureCollectorCost = YG2.saves.AquaUpgradeCoast;
             if (aquacultureCollectorUpgradePriceText != null) aquacultureCollectorUpgradePriceText.text = $"{upgradeAquacultureCollectorCost}$+{YG2.saves.AquaUpgradeCoastResource}";
             baseLogic?.SoldResources?.Invoke();
