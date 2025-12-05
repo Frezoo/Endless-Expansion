@@ -25,6 +25,8 @@ public class BaseUpgradeLogic : MonoBehaviour
     [Header("Ссылка на BaseLogic")]
     [SerializeField] private BaseLogic baseLogic;
 
+    [SerializeField] private BaseHealthChanged healthChanged;
+
     private void Awake()
     {
         if (baseLogic == null) baseLogic = GetComponent<BaseLogic>();
@@ -44,12 +46,15 @@ public class BaseUpgradeLogic : MonoBehaviour
         {
             YG2.saves.money -= YG2.saves.BaseUpgradeCoast;
             YG2.saves.BaseCurrentLevel++;
+            YG2.saves.BaseHealth = YG2.saves.MaxBaseHealth;
+            healthChanged.IternalFill();
             if(baseUpdatePriceText != null) baseUpdatePriceText.text = YG2.saves.BaseUpgradeCoast + "$";
             baseLogic?.SoldResources?.Invoke();
             if(YG2.saves.CurrentPhase == 1)
                 PhaseController.instance.CheckTogglesPhase2();
             if(YG2.saves.CurrentPhase == 2)
                 PhaseController.instance.CheckTogglesToPhase3();
+            YG2.SaveProgress();
         }
         else
         {

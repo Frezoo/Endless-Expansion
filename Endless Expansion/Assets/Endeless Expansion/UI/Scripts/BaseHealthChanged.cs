@@ -23,7 +23,7 @@ public class BaseHealthChanged : MonoBehaviour
         IternalFill();
     }
 
-    private void IternalFill()
+    public void IternalFill()
     {
         healthBar.fillAmount = Mathf.Clamp01(YG2.saves.BaseHealth/baseHeath.MaxHealth);
     }

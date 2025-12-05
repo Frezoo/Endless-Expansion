@@ -79,12 +79,20 @@ public class Alien : MonoBehaviour
         wander.StartWandering();
         StartCoroutine(AttackLoop());
         InitAnimations();
+        if (YG2.saves.BaseCurrentLevel <= 5)
+        {
+            attackDamage = 3 * YG2.saves.BaseCurrentLevel * 1.3f;
+        }
+        else
+        {
+            attackDamage = 3 * Mathf.Pow(YG2.saves.BaseCurrentLevel , 1.85f);
+        }
     }
 
     private void Update()
     {
         var distance = Vector3.Distance(transform.position, target.position);
-        if (distance <= 5 && !wasAttackingInThisTurn)
+        if (distance <= 1 && !wasAttackingInThisTurn)
         {
             Debug.Log($"Дистанция {distance} пришленец {gameObject.name}");
             baseHealth.TakeDamage(attackDamage);

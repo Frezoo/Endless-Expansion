@@ -21,6 +21,15 @@ public class BuyColonyBuildings : MonoBehaviour
         BuyTN.onClick.AddListener(OnBuyTN);
         BuyEC.onClick.AddListener(OnBuyEC);
         BuyU.onClick.AddListener(OnBuyU);
+
+        BuyRA.interactable = !YG2.saves.RededentalAreaIsBuilded;
+        BuySQ.interactable = !YG2.saves.SQIsBuilded;
+        BuyIZ.interactable = !YG2.saves.IZIsBuilded;
+        BuyG.interactable = !YG2.saves.GIsBuilded;
+        BuyTN.interactable = !YG2.saves.TNIsBuilded;
+        BuyEC.interactable = !YG2.saves.ECIsBuilded;
+        BuyU.interactable = !YG2.saves.UIsbuilded;
+
     }
 
     private void OnBuyRA()
@@ -33,6 +42,10 @@ public class BuyColonyBuildings : MonoBehaviour
             BuyRA.interactable = false;
             PhaseController.instance.CheckTogglesEnd();
             YG2.SaveProgress();
+        }
+        else
+        {
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
         }
     }
     private void OnBuySQ()
@@ -47,6 +60,10 @@ public class BuyColonyBuildings : MonoBehaviour
             PhaseController.instance.CheckTogglesEnd();
             YG2.SaveProgress();
         }
+        else
+        {
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
+        }
     }
     private void OnBuyIZ()
     {
@@ -58,6 +75,10 @@ public class BuyColonyBuildings : MonoBehaviour
             BuyIZ.interactable = false;
             PhaseController.instance.CheckTogglesEnd();
             YG2.SaveProgress();
+        }
+        else
+        {
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
         }
     }
     private void OnBuyG()
@@ -71,6 +92,10 @@ public class BuyColonyBuildings : MonoBehaviour
             PhaseController.instance.CheckTogglesEnd();
             YG2.SaveProgress();
         }
+        else
+        {
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
+        }
     }
     private void OnBuyTN()
     {
@@ -82,6 +107,10 @@ public class BuyColonyBuildings : MonoBehaviour
             BuyTN.interactable = false;
             PhaseController.instance.CheckTogglesEnd();
             YG2.SaveProgress();
+        }
+        else
+        {
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
         }
     }
     private void OnBuyEC()
@@ -95,6 +124,10 @@ public class BuyColonyBuildings : MonoBehaviour
             PhaseController.instance.CheckTogglesEnd();
             YG2.SaveProgress();
         }
+        else
+        {
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
+        }
     }
     private void OnBuyU()
     {
@@ -106,6 +139,10 @@ public class BuyColonyBuildings : MonoBehaviour
             BuyU.interactable = false;
             PhaseController.instance.CheckTogglesEnd();
             YG2.SaveProgress();
+        }
+        else
+        {
+            ThrowAlerts.Instance.ThrowNotEnoughMoneyAlert();
         }
     }
 }

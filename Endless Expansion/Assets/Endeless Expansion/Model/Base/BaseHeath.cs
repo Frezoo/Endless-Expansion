@@ -16,12 +16,16 @@ public class BaseHeath : MonoBehaviour
     private void Awake()
     {
         health = YG2.saves.BaseHealth;
+        if (health == 0)
+        {
+            GameOver?.Invoke();
+        }
     }
 
     public void TakeDamage(float amount)
     {
-        health -= amount;
-        health = Mathf.Clamp(health, 0, maxHealth);
+        YG2.saves.BaseHealth -= amount;
+        health = Mathf.Clamp(YG2.saves.BaseHealth, 0, maxHealth);
         OnHealthChanged?.Invoke(health, maxHealth);
         YG2.saves.BaseHealth = health;
         if (health == 0)

@@ -1,11 +1,15 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 
 public class OpenCloseSettings : MonoBehaviour
 {
-    [Header("Кнопка")] [SerializeField] private Button closeButton;
+    [Header("Кнопка")] 
+    [SerializeField] private Button closeButton;
     [SerializeField] private Button openButton;
+    [SerializeField] private Button mainMenuButton;
 
     [Header("Объект настроек")] [SerializeField]
     private GameObject settingsPanel;
@@ -38,6 +42,7 @@ public class OpenCloseSettings : MonoBehaviour
         openButton.onClick.AddListener(OpenSettingsPanel);
         inputController.OpenSettings.AddListener(OpenSettingsPanel);
         inputController.CloseSettings.AddListener(CloseSettingsPanel);
+        mainMenuButton.onClick.AddListener(GoToMainMenu);
         CloseSettingsPanel();
     }
 
@@ -73,5 +78,11 @@ public class OpenCloseSettings : MonoBehaviour
                     ));
         }
         
+    }
+    
+    private void GoToMainMenu()
+    {
+        YG2.SaveProgress();
+        SceneManager.LoadScene(0);
     }
 }
