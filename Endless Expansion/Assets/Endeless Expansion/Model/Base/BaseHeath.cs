@@ -15,7 +15,7 @@ public class BaseHeath : MonoBehaviour
 
     private void Awake()
     {
-        health = YG2.saves.BaseHealth == 0? YG2.saves.MaxBaseHealth : YG2.saves.BaseHealth;
+        health = YG2.saves.BaseHealth;
     }
 
     public void TakeDamage(float amount)

@@ -9,6 +9,20 @@ public class SwitchLanguage : MonoBehaviour
     [SerializeField] private Button englishButton;
     [SerializeField] private Button turkishButton;
     
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void Init()
+    {
+        YG2.onCorrectLang += OnСhangeLang;
+    }
+    
+    public static void OnСhangeLang(string lang)
+    {
+        if (lang != "ru" && lang != "en" && lang != "tr")
+        {
+            YG2.SwitchLanguage("en");
+        }
+    }
+    
     private void Awake()
     {
         englishButton.onClick.AddListener(SwitchToEnglish);
@@ -48,7 +62,7 @@ public class SwitchLanguage : MonoBehaviour
         if (YG2.saves.Language != null)
         {
             Debug.Log("Language: " + YG2.saves.Language);
-            YG2.SwitchLanguage(YG2.saves.Language);
+            //YG2.SwitchLanguage(YG2.saves.Language);
         }
     }
 

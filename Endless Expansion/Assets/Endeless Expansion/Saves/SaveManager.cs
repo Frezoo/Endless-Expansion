@@ -87,7 +87,7 @@ public class SaveManager : MonoBehaviour
     {
         SetDefaultParams();
         
-        YG2.saves.Language = StandardLanguage;
+        //YG2.saves.Language = StandardLanguage;
         YG2.saves.GeneralVolume = StandardGeneralVolume;
         YG2.saves.MusicVolume = StandardMusicVolume;
         YG2.SaveProgress();

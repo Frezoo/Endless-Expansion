@@ -168,9 +168,22 @@ public class PhaseController : MonoBehaviour
             YG2.saves.TNIsBuilded && YG2.saves.ECIsBuilded && YG2.saves.GIsBuilded && YG2.saves.UIsbuilded)
         {
             endToggle2.isOn = true;
-            Win.instance.OnWin();
-            Debug.Log("КОНЕЦ СУКА УРА");
+            if (Win.instance != null)
+            { 
+                ThrowWinAlert();
+            }
+            else
+            {
+                Invoke("ThrowWinAlert",1f);
+            }
+            
+          
         }
+    }
+
+    void ThrowWinAlert()
+    {
+        Win.instance.OnWin();
     }
     
     public void CheckTogglesToPhase3()

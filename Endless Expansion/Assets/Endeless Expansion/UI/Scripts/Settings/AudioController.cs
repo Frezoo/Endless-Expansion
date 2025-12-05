@@ -23,6 +23,7 @@ public class AudioController : MonoBehaviour
         {
             Invoke("OnSavesReady", 0.03f);
         }
+        
     }
 
     private void ChangeGeneralVolume(float Value)
@@ -48,6 +49,9 @@ public class AudioController : MonoBehaviour
     {
         GeneralVolumeSlider.value = YG2.saves.GeneralVolume;
         MusicVolumeSlider.value = YG2.saves.MusicVolume;
+        
+        musicListener.volume = YG2.saves.MusicVolume;;
+        AudioListener.volume = YG2.saves.GeneralVolume;
     }
 
     private void OnDestroy()

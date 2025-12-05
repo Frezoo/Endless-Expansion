@@ -52,6 +52,7 @@ public class OpenCloseSettings : MonoBehaviour
             {
                 settingsPanel.SetActive(false);
                 otherCanvasGroup.interactable = true;
+                settingsCanvasGroup.alpha = 0f;
             }));
     }
 
@@ -59,6 +60,7 @@ public class OpenCloseSettings : MonoBehaviour
     {
         if (canBeOpen)
         {
+            settingsCanvasGroup.alpha = 1f;
             inputController.IsOpen = true;
             settingsPanel.SetActive(true);
             settingsPanelRectTransform.DOScale(defaultScale, duration)
